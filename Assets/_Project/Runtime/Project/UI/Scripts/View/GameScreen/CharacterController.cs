@@ -1,6 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+
+using TMPro;
+using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.UI;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
@@ -8,6 +14,7 @@ public class CharacterController : MonoBehaviour
 {
     public FixedJoystick Joystick;
     private Rigidbody _rb;
+    public NavMeshAgent Agent;
     private float _horizontal;
     private float _vertical;
     public float speed;
@@ -32,5 +39,10 @@ public class CharacterController : MonoBehaviour
         move=new Vector3(_horizontal,0,_vertical)*Time.deltaTime*speed;
 
         _rb.MovePosition(transform.position+transform.TransformDirection(move));
+    }
+
+    public void DieScene()
+    {
+        Debug.Log("die...");
     }
 }
