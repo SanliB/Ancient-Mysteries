@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour
     
     void Start()
     {
-        
+        _limitX=-90;
     }
 
     void Update()
