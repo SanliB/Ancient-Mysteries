@@ -7,9 +7,7 @@ public class AnubisPuzzle : MonoSingleton<AnubisPuzzle>
     public bool _trueRotStatus=false;
     public GameObject[] CatList;
     public int sayac=0;
-
     public bool status=false;
-
     GameObject door;
     float a;
     
@@ -38,7 +36,7 @@ public class AnubisPuzzle : MonoSingleton<AnubisPuzzle>
                     sayac++;
                 }
             }
-            if(sayac==CatList.Length){
+            if(sayac==CatList.Length && status==false){
                 status=true;
                 SoundManager.Instance.Audio(1);
                 door.transform.position=new Vector3(door.transform.position.x,a,door.transform.position.z);
