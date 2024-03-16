@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AnubisPuzzle : MonoBehaviour
+public class AnubisPuzzle : MonoSingleton<AnubisPuzzle>
 {
     private Vector3 _catStatus;
     public Vector3 TrueRot;
@@ -8,20 +8,24 @@ public class AnubisPuzzle : MonoBehaviour
     public GameObject[] CatList;
     public int sayac=0;
 
+    public bool status=false;
+    
+    void Awake(){
+
+    }
     private void OnMouseDown()
     {
         Debug.Log(gameObject.tag);
         if(gameObject.tag=="Cat"){
+            SoundManager.Instance.Audio(0);
             transform.Rotate(0,45,0);
             _catStatus=transform.rotation.eulerAngles;
-            //Debug.Log(_catStatus.y+"  "+TrueRot.y);
             if(TrueRot.y <= _catStatus.y &&  _catStatus.y<=TrueRot.y+1){
                 _trueRotStatus=true;
             }
             else{
                 _trueRotStatus=false;
             }
-            //Debug.Log(_trueRotStatus);
         }
         if(gameObject.tag=="Anubis"){
             sayac=0;
@@ -31,6 +35,7 @@ public class AnubisPuzzle : MonoBehaviour
                 }
             }
             if(sayac==CatList.Length){
+                status=true;
                 Debug.Log("kapı açıldı");
             }
         }

@@ -14,6 +14,8 @@ public class DoorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        foreach(var a in DoorList){
+           // if(a==)
+        }
     }
 }
