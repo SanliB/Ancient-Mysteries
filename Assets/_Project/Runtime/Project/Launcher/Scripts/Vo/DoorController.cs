@@ -2,20 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorController : MonoBehaviour
+public class DoorController : MonoSingleton<DoorController>
 {
     public GameObject[] DoorList;
 
-    void Start()
+    public GameObject Door(int a)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        foreach(var a in DoorList){
-           // if(a==)
-        }
+        return DoorList[a];
     }
 }

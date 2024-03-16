@@ -33196,6 +33196,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 564271806}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &565417219 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: e8509d0bc33ac9c4088232205ccc9352,
+    type: 3}
+  m_PrefabInstance: {fileID: 2105264338}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &568337776
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46381,6 +46387,52 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 699557164}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &699758356
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 699758358}
+  - component: {fileID: 699758357}
+  m_Layer: 0
+  m_Name: DoorManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &699758357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699758356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65a5c062dfa09454a82ece4c704861db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DoorList:
+  - {fileID: 565417219}
+--- !u!4 &699758358
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699758356}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -25.743502, y: 1.4278687, z: 4.732928}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &700652405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -104084,6 +104136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audio:
   - {fileID: 8300000, guid: 79b22356bd98b8a4ba2fa8c14fc07f31, type: 3}
+  - {fileID: 8300000, guid: 7e8dc999c9658ca48a40fc2afdd0f916, type: 3}
 --- !u!82 &1555824967
 AudioSource:
   m_ObjectHideFlags: 0
@@ -134320,3 +134373,4 @@ SceneRoots:
   - {fileID: 2066739254}
   - {fileID: 926491155}
   - {fileID: 1555824968}
+  - {fileID: 699758358}

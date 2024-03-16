@@ -9,9 +9,13 @@ public class AnubisPuzzle : MonoSingleton<AnubisPuzzle>
     public int sayac=0;
 
     public bool status=false;
+
+    GameObject door;
+    float a;
     
     void Awake(){
-
+        door= DoorController.Instance.Door(0);
+        a=door.transform.position.y+4;
     }
     private void OnMouseDown()
     {
@@ -36,6 +40,8 @@ public class AnubisPuzzle : MonoSingleton<AnubisPuzzle>
             }
             if(sayac==CatList.Length){
                 status=true;
+                SoundManager.Instance.Audio(1);
+                door.transform.position=new Vector3(door.transform.position.x,a,door.transform.position.z);
                 Debug.Log("kapı açıldı");
             }
         }
