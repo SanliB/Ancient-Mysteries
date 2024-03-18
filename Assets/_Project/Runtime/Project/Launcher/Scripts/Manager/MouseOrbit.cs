@@ -40,27 +40,20 @@ public class MouseOrbit : MonoBehaviour {
             GetComponent<Rigidbody>().freezeRotation = true;
 	}
 	
-    void LateUpdate () {
+    public void OnMouseDown() {
     if (target) {
 		if(inertiaVar>0) inertiaVar--;
-		if(Input.GetMouseButtonDown(0)) {
+		if(Input.GetMouseButtonDown(0)) 
+			{
 				firstClick = true;
 			}
-		if(Input.GetMouseButtonUp(0)) 
-			{
-			AxisX =	Input.GetAxis("Mouse X");
-			AxisY =	Input.GetAxis("Mouse Y");
-			}
+		
 			
 		if(firstClick)
 			{	
 	      	    inertiaVar = inertia;
 				x += Input.GetAxis("Mouse X") * xSpeed * distance * 0.02f*inertiaVar;
 	      		y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f*inertiaVar;
-			}
-			else{
-				x += AxisX*xSpeed * distance * 0.02f*inertiaVar;
-	       		y -= AxisY*ySpeed * 0.02f*inertiaVar;
 			}
 			
 		
@@ -72,31 +65,33 @@ public class MouseOrbit : MonoBehaviour {
 			
 			
 			
-		if(Input.GetMouseButtonUp(0)){
-		if(!target.GetComponent<Animation>().isPlaying && mp.x == Input.mousePosition.x && mp.y == Input.mousePosition.y){
-		if(distance<14)
-			camZ = true;
+			if(Input.GetMouseButtonUp(0))
+			{
+				if(!target.GetComponent<Animation>().isPlaying && mp.x == Input.mousePosition.x && mp.y == Input.mousePosition.y)
+				{
+					if(distance<14)
+					camZ = true;
 		
-				if(!open){ 
+					if(!open)
+					{ 
 						target.GetComponent<Animation>()["ChestAnim"].speed = 1.0f;
 						open = true;
 
 						
 					}
-				else {
+					else 
+					{
 							target.GetComponent<Animation>()["ChestAnim"].time = target.GetComponent<Animation>()["ChestAnim"].length;	
 							
 					}
 						target.GetComponent<Animation>().Play("ChestAnim");
 					
-					}		
-				}
+				}		
+			}
 			
-    }
+		}
  
-}
- 
-    
- 
- 
+	}
+
+
 }

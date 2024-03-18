@@ -7,12 +7,14 @@ public class Key : MonoSingleton<Key>
 {
 
     public bool status = false;
+    public GameObject KeyAll;
     private void OnMouseDown()
     {
-        status = true;
+        
         if (gameObject.tag == "Key")
         {
-            gameObject.SetActive(false);
+            KeyAll.SetActive(false);
+            status = true;
         }
          
     }
