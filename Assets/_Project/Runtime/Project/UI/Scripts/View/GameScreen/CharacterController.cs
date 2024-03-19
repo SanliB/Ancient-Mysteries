@@ -9,6 +9,7 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class CharacterController : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class CharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         _horizontal = Joystick.Horizontal;
         _vertical = Joystick.Vertical;
 
@@ -40,9 +42,11 @@ public class CharacterController : MonoBehaviour
 
         _rb.MovePosition(transform.position+transform.TransformDirection(move));
     }
+    
+    
 
     public void DieScene()
     {
-        Debug.Log("die...");
+        SceneManager.LoadScene("DeathScene");
     }
 }
