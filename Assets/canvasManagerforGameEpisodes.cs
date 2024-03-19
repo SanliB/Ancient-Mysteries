@@ -25,6 +25,7 @@ public class canvasManagerforGameEpisodes : MonoBehaviour
     public GameObject SettingsPanel;
     public GameObject VolumeSlider;
     public GameObject ComeBackButtonForSettings;
+    public GameObject MenuPanelforBackground;
     private bool[] ButtonisActive;
     private bool EnvOpenorClose;
     private float envstartposy;
@@ -76,6 +77,7 @@ public class canvasManagerforGameEpisodes : MonoBehaviour
     {
         Time.timeScale = 0;
         MenuPanel.SetActive(true);
+        MenuPanelforBackground.SetActive(true);
         MenuTransform.DOMoveX(MenuTransform.position.x - 152, 0.5f).SetUpdate(true); // -1179 -1331
         BackPackTransform.DOMoveX(BackPackTransform.position.x + 152, 0.5f).SetUpdate(true);
         FlashLightTransform.DOMoveX(FlashLightTransform.position.x + 152, 0.5f).SetUpdate(true);
@@ -90,6 +92,7 @@ public class canvasManagerforGameEpisodes : MonoBehaviour
     {
         Time.timeScale = 1;
         MenuPanel.SetActive(false);
+        MenuPanelforBackground.SetActive(false);
         Menu.SetActive(true);
         BackPack.SetActive(true);
         FlashLight.SetActive(true);
