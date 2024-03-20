@@ -10,11 +10,12 @@ using UnityEngine.UI;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using Vector3 = UnityEngine.Vector3;
 
-public class CharacterController : MonoBehaviour
+public class CharacterController : MonoSingleton<CharacterController>
 {
     public FixedJoystick Joystick;
-    private Rigidbody _rb;
+    public Rigidbody _rb;
     public NavMeshAgent Agent;
     private float _horizontal;
     private float _vertical;
@@ -44,9 +45,4 @@ public class CharacterController : MonoBehaviour
     }
     
     
-
-    public void DieScene()
-    {
-        SceneManager.LoadScene("DeathScene");
-    }
 }

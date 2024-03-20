@@ -21,6 +21,7 @@ public class enemyAI : MonoBehaviour
     private bool playerInSight, playerInAttackRange;
     private Animator _animator;
     private BoxCollider SpiderNail;
+    public DeathPanel panel;
         
     // Start is called before the first frame update
     void Start()
@@ -56,7 +57,8 @@ public class enemyAI : MonoBehaviour
         Collider[] hitList = Physics.OverlapSphere(SpiderNail.transform.position, attackRange, playerLayer);
         foreach (var hits in hitList)
         {
-            hits.SendMessage("DieScene");
+            //hits.SendMessage("returnGame");
+            panel.GetComponent<DeathPanel>().returnGame();
         }
     }
     
