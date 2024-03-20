@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Cat
   - Anubis
+  - WallKey
   layers:
   - Default
   - TransparentFX

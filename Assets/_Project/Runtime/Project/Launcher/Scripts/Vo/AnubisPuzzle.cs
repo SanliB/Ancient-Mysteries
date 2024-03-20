@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AnubisPuzzle : MonoSingleton<AnubisPuzzle>
+public class AnubisPuzzle : MonoBehaviour
 {
     private Vector3 _catStatus;
     public Vector3 TrueRot;
