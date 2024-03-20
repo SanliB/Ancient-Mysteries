@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -593,6 +593,13 @@ MonoBehaviour:
   - {fileID: 1658898043}
   - {fileID: 1444564422}
   - {fileID: 522983110}
+  EnvItemImages:
+  - {fileID: 557095105}
+  - {fileID: 1540638360}
+  - {fileID: 1422363545}
+  - {fileID: 1369766581}
+  - {fileID: 1944137580}
+  - {fileID: 423812050}
   MenuPanel: {fileID: 1591322629}
   ComeBackGameButtonForMenuPanel: {fileID: 1407553482}
   SettingsButtonForMenuPanel: {fileID: 520512152}

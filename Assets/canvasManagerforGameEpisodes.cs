@@ -9,18 +9,18 @@ using MainMenu;
 using DG.Tweening;
 
 public class canvasManagerforGameEpisodes : MonoBehaviour
-{
+{ 
     // Start is called before the first frame update
-
     public GameObject Menu;
     public GameObject BackPack;
-    public GameObject FlashLight;
-    public GameObject EnvPanel;
+    public GameObject FlashLight; 
+    public GameObject EnvPanel; 
     public GameObject[] EnvPanelButtons;
     public GameObject[] EnvPanelButtonsSelectedImages;
+    public GameObject[] EnvItemImages;
     public GameObject MenuPanel;
     public GameObject ComeBackGameButtonForMenuPanel;
-    public GameObject SettingsButtonForMenuPanel;
+    public GameObject SettingsButtonForMenuPanel; 
     public GameObject MainMenuButtonForMenuPanel;
     public GameObject SettingsPanel;
     public GameObject VolumeSlider;
@@ -34,13 +34,16 @@ public class canvasManagerforGameEpisodes : MonoBehaviour
     private Transform MenuPanelTransform;
     private Transform BackPackTransform;
     private Transform FlashLightTransform;
+    protected Dictionary<int, bool> EnvDictionary;
 
     private void Awake()
     {
         ButtonisActive = new bool[6];
+        EnvDictionary = new Dictionary<int, bool>();
         for (int i = 0; i < EnvPanelButtonsSelectedImages.Length; i++)
         {
             ButtonisActive[i] = false;
+            EnvDictionary[i] = false;
             //EnvPanelButtonsSelectedImages[i].active = false;
         }
         EnvOpenorClose = false;
@@ -59,7 +62,37 @@ public class canvasManagerforGameEpisodes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+    }
+
+    private int SearchFreeEnvIndex()
+    {
+        for (int i = 0; i < EnvPanelButtonsSelectedImages.Length; i++)
+        {
+            if (EnvDictionary[i] == false)
+                return (i);
+        }
+
+        return (-1);
+    }
+
+    private int SearchItemForEnv(Sprite Item)
+    {
+        for (int i = 0; i < EnvPanelButtonsSelectedImages.Length; i++)
+            if (EnvItemImages[i].GetComponent<Image>().sprite == Item)
+                return (i);
+        return (-1);
+    }
+    
+    public void AddItemForEnv(Sprite additem)
+    {
+        EnvItemImages[SearchFreeEnvIndex()].GetComponent<Image>().sprite = additem;
+        EnvDictionary[SearchFreeEnvIndex()] = true;
+    }
+
+    public void DeleteItemForEnv(Sprite deleteItem)
+    {
+        EnvDictionary[SearchItemForEnv(deleteItem)] = false;
+        EnvItemImages[SearchItemForEnv(deleteItem)].GetComponent<Image>().sprite = null;
     }
 
     public void ifclickbackpack()
@@ -82,10 +115,6 @@ public class canvasManagerforGameEpisodes : MonoBehaviour
         BackPackTransform.DOMoveX(BackPackTransform.position.x + 152, 0.5f).SetUpdate(true);
         FlashLightTransform.DOMoveX(FlashLightTransform.position.x + 152, 0.5f).SetUpdate(true);
         EnvPanelTransform.DOMoveY(EnvPanelTransform.position.y - 244, 0.5f).SetUpdate(true);
-        //Menu.SetActive(false);
-        //BackPack.SetActive(false);
-        //FlashLight.SetActive(false);
-        //EnvPanel.SetActive(false);
     }
 
     public void ifClickComeBackButton()
@@ -93,10 +122,6 @@ public class canvasManagerforGameEpisodes : MonoBehaviour
         Time.timeScale = 1;
         MenuPanel.SetActive(false);
         MenuPanelforBackground.SetActive(false);
-        Menu.SetActive(true);
-        BackPack.SetActive(true);
-        FlashLight.SetActive(true);
-        EnvPanel.SetActive(true);
         MenuTransform.DOMoveX(MenuTransform.position.x + 152, 0.5f);
         BackPackTransform.DOMoveX(BackPackTransform.position.x - 152, 0.5f);
         FlashLightTransform.DOMoveX(FlashLightTransform.position.x - 152, 0.5f);
@@ -124,7 +149,7 @@ public class canvasManagerforGameEpisodes : MonoBehaviour
 
     public void ifClickMainMenuButton()
     {
-        mainmenuscript.FirstEntry = true;
+        mainmenuscript.FirstEntry = true; 
         SceneManager.LoadScene(3);
     }
 }
