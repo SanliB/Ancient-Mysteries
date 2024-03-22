@@ -26,7 +26,9 @@ public class CharacterController : MonoBehaviour
         _vertical = Joystick.Vertical;
 
         if(_horizontal!=0 || _vertical!=0){
-            transform.rotation=Quaternion.Lerp(transform.rotation,Cam.transform.rotation,0.3f);
+            Quaternion target = Quaternion.Euler(0, Cam.transform.rotation.eulerAngles.y, 0);
+            transform.rotation=Quaternion.Lerp(transform.rotation,target,0.3f);
+            //transform.rotation=Quaternion.Lerp(transform.rotation,Cam.transform.rotation,0.3f);
         }
 
         move=new Vector3(_horizontal,0,_vertical)*Time.deltaTime*speed;
