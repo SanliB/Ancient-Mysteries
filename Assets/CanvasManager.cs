@@ -97,15 +97,19 @@ public class canvasManagerforGameEpisodes : MonoBehaviour
 
     public void ifclickbackpack()
     {
-        float currentposy = EnvPanelTransform.position.y;
-        Debug.Log("Merhaba");
-        if ((int)currentposy == -60 || (int)currentposy == 60 )
+        // float currentposy = EnvPanelTransform.position.y;
+        var a = EnvPanel.GetComponent<RectTransform>();
+
+        Debug.Log(a.anchoredPosition);
+        a.anchoredPosition=new Vector2(15, 30);
+        /*if ((int)currentposy == -60 || (int)currentposy == 60 )
         {
             Debug.Log("fjghfkkd");
             float targetPosition = EnvOpenorClose ? -60 : 60;
             EnvPanelTransform.DOMoveY(targetPosition, 1);
             EnvOpenorClose = !EnvOpenorClose;
-        }
+
+        }*/
     }
 
     public void ifClickMenuButton()
