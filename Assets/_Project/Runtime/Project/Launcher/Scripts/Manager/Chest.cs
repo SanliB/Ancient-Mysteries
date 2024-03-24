@@ -14,6 +14,7 @@ public class Chest : MonoBehaviour
             gameObject.GetComponent<Animation>().Play();
             ChestStatus = false;
             a= true;
+            gameObject.GetComponent<BoxCollider>().enabled = false;
         }
     }
 
@@ -23,9 +24,7 @@ public class Chest : MonoBehaviour
         {
             ChestStatus = true;
         }
-       
     }
-
 }
 
 

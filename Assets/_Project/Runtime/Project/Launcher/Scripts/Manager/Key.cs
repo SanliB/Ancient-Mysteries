@@ -10,7 +10,6 @@ public class Key : MonoSingleton<Key>
     public GameObject KeyAll;
     private void OnMouseDown()
     {
-        
         if (gameObject.tag == "Key")
         {
             KeyAll.SetActive(false);
