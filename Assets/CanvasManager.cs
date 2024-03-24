@@ -38,6 +38,7 @@ public class canvasManagerforGameEpisodes : MonoBehaviour
 
     private void Awake()
     {
+        Time.timeScale = 1;
         ButtonisActive = new bool[6];
         EnvDictionary = new Dictionary<int, bool>();
         for (int i = 0; i < EnvPanelButtonsSelectedImages.Length; i++)
@@ -97,19 +98,14 @@ public class canvasManagerforGameEpisodes : MonoBehaviour
 
     public void ifclickbackpack()
     {
-        // float currentposy = EnvPanelTransform.position.y;
-        var a = EnvPanel.GetComponent<RectTransform>();
-
-        Debug.Log(a.anchoredPosition);
-        a.anchoredPosition=new Vector2(15, 30);
-        /*if ((int)currentposy == -60 || (int)currentposy == 60 )
+        float currentposy = EnvPanel.GetComponent<RectTransform>().position.y;
+        Debug.Log(currentposy);
+        if ((int)currentposy == -106 || (int)currentposy == 100)
         {
-            Debug.Log("fjghfkkd");
-            float targetPosition = EnvOpenorClose ? -60 : 60;
+            float targetPosition = EnvOpenorClose ? -106 : 100;
             EnvPanelTransform.DOMoveY(targetPosition, 1);
             EnvOpenorClose = !EnvOpenorClose;
-
-        }*/
+        }
     }
 
     public void ifClickMenuButton()
@@ -117,10 +113,10 @@ public class canvasManagerforGameEpisodes : MonoBehaviour
         Time.timeScale = 0;
         MenuPanel.SetActive(true);
         MenuPanelforBackground.SetActive(true);
-        MenuTransform.DOMoveX(MenuTransform.position.x - 152, 0.5f).SetUpdate(true); // -1179 -1331
-        BackPackTransform.DOMoveX(BackPackTransform.position.x + 152, 0.5f).SetUpdate(true);
-        FlashLightTransform.DOMoveX(FlashLightTransform.position.x + 152, 0.5f).SetUpdate(true);
-        EnvPanelTransform.DOMoveY(EnvPanelTransform.position.y - 244, 0.5f).SetUpdate(true);
+        MenuTransform.DOMoveX(MenuTransform.position.x - 300, 0.5f).SetUpdate(true); // -1179 -1331
+        BackPackTransform.DOMoveX(BackPackTransform.position.x + 300, 0.5f).SetUpdate(true);
+        FlashLightTransform.DOMoveX(FlashLightTransform.position.x + 300, 0.5f).SetUpdate(true);
+        EnvPanelTransform.DOMoveY(EnvPanelTransform.position.y - 300, 0.5f).SetUpdate(true);
     }
 
     public void ifClickComeBackButton()
@@ -128,10 +124,10 @@ public class canvasManagerforGameEpisodes : MonoBehaviour
         Time.timeScale = 1;
         MenuPanel.SetActive(false);
         MenuPanelforBackground.SetActive(false);
-        MenuTransform.DOMoveX(MenuTransform.position.x + 152, 0.5f);
-        BackPackTransform.DOMoveX(BackPackTransform.position.x - 152, 0.5f);
-        FlashLightTransform.DOMoveX(FlashLightTransform.position.x - 152, 0.5f);
-        EnvPanelTransform.DOMoveY(EnvPanelTransform.position.y + 244, 0.5f);
+        MenuTransform.DOMoveX(MenuTransform.position.x + 300, 0.5f);
+        BackPackTransform.DOMoveX(BackPackTransform.position.x - 300, 0.5f);
+        FlashLightTransform.DOMoveX(FlashLightTransform.position.x - 300, 0.5f);
+        EnvPanelTransform.DOMoveY(EnvPanelTransform.position.y + 300, 0.5f);
     }
 
     public void ifClickSettingsButton()
