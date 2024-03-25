@@ -8,6 +8,8 @@ TagManager:
   - Chest
   - Character
   - Paper
+  - Cat
+  - Anubis
   layers:
   - Default
   - TransparentFX
