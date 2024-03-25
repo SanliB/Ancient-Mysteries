@@ -29,11 +29,11 @@ public class canvasManagerforGameEpisodes : MonoBehaviour
     private bool[] ButtonisActive;
     private bool EnvOpenorClose;
     private float envstartposy;
-    private Transform EnvPanelTransform;
-    private Transform MenuTransform;
-    private Transform MenuPanelTransform;
-    private Transform BackPackTransform;
-    private Transform FlashLightTransform;
+    private RectTransform EnvPanelTransform;
+    private RectTransform MenuTransform;
+    private RectTransform MenuPanelTransform;
+    private RectTransform BackPackTransform;
+    private RectTransform FlashLightTransform;
     protected Dictionary<int, bool> EnvDictionary;
 
     private void Awake()
@@ -48,12 +48,12 @@ public class canvasManagerforGameEpisodes : MonoBehaviour
             //EnvPanelButtonsSelectedImages[i].active = false;
         }
         EnvOpenorClose = false;
-        EnvPanelTransform = EnvPanel.GetComponent<Transform>();
-        MenuPanelTransform = MenuPanel.GetComponent<Transform>();
-        MenuTransform = Menu.GetComponent<Transform>();
-        BackPackTransform = BackPack.GetComponent<Transform>();
-        FlashLightTransform = FlashLight.GetComponent<Transform>();
-        envstartposy = EnvPanelTransform.position.y;
+        EnvPanelTransform = EnvPanel.GetComponent<RectTransform>();
+        MenuPanelTransform = MenuPanel.GetComponent<RectTransform>();
+        MenuTransform = Menu.GetComponent<RectTransform>();
+        BackPackTransform = BackPack.GetComponent<RectTransform>();
+        FlashLightTransform = FlashLight.GetComponent<RectTransform>();
+        envstartposy = EnvPanelTransform.anchoredPosition.y;
     }
 
     void Start()
@@ -98,14 +98,9 @@ public class canvasManagerforGameEpisodes : MonoBehaviour
 
     public void ifclickbackpack()
     {
-        float currentposy = EnvPanel.GetComponent<RectTransform>().position.y;
-        Debug.Log(currentposy);
-        if ((int)currentposy == -106 || (int)currentposy == 100)
-        {
-            float targetPosition = EnvOpenorClose ? -106 : 100;
-            EnvPanelTransform.DOMoveY(targetPosition, 1);
-            EnvOpenorClose = !EnvOpenorClose;
-        }
+        float targetPosition = EnvOpenorClose ? envstartposy : (envstartposy + 80);
+        EnvPanelTransform.DOAnchorPosY(targetPosition, 1);
+        EnvOpenorClose = !EnvOpenorClose;
     }
 
     public void ifClickMenuButton()
@@ -113,10 +108,10 @@ public class canvasManagerforGameEpisodes : MonoBehaviour
         Time.timeScale = 0;
         MenuPanel.SetActive(true);
         MenuPanelforBackground.SetActive(true);
-        MenuTransform.DOMoveX(MenuTransform.position.x - 300, 0.5f).SetUpdate(true); // -1179 -1331
-        BackPackTransform.DOMoveX(BackPackTransform.position.x + 300, 0.5f).SetUpdate(true);
-        FlashLightTransform.DOMoveX(FlashLightTransform.position.x + 300, 0.5f).SetUpdate(true);
-        EnvPanelTransform.DOMoveY(EnvPanelTransform.position.y - 300, 0.5f).SetUpdate(true);
+        MenuTransform.DOAnchorPosX(MenuTransform.anchoredPosition.x - 100, 0.5f).SetUpdate(true);
+        BackPackTransform.DOAnchorPosX(BackPackTransform.anchoredPosition.x + 100, 0.5f).SetUpdate(true);
+        FlashLightTransform.DOAnchorPosX(FlashLightTransform.anchoredPosition.x + 100, 0.5f).SetUpdate(true);
+        EnvPanelTransform.DOAnchorPosY(EnvPanelTransform.anchoredPosition.y - 100, 0.5f).SetUpdate(true);
     }
 
     public void ifClickComeBackButton()
@@ -124,10 +119,10 @@ public class canvasManagerforGameEpisodes : MonoBehaviour
         Time.timeScale = 1;
         MenuPanel.SetActive(false);
         MenuPanelforBackground.SetActive(false);
-        MenuTransform.DOMoveX(MenuTransform.position.x + 300, 0.5f);
-        BackPackTransform.DOMoveX(BackPackTransform.position.x - 300, 0.5f);
-        FlashLightTransform.DOMoveX(FlashLightTransform.position.x - 300, 0.5f);
-        EnvPanelTransform.DOMoveY(EnvPanelTransform.position.y + 300, 0.5f);
+        MenuTransform.DOAnchorPosX(MenuTransform.anchoredPosition.x + 100, 0.5f).SetUpdate(true);
+        BackPackTransform.DOAnchorPosX(BackPackTransform.anchoredPosition.x - 100, 0.5f).SetUpdate(true);
+        FlashLightTransform.DOAnchorPosX(FlashLightTransform.anchoredPosition.x - 100, 0.5f).SetUpdate(true);
+        EnvPanelTransform.DOAnchorPosY(EnvPanelTransform.anchoredPosition.y + 100, 0.5f).SetUpdate(true);
     }
 
     public void ifClickSettingsButton()
@@ -151,6 +146,7 @@ public class canvasManagerforGameEpisodes : MonoBehaviour
 
     public void ifClickMainMenuButton()
     {
+        Time.timeScale = 1;
         mainmenuscript.FirstEntry = true;
         SceneManager.LoadScene(2);
     }
