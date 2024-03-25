@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
@@ -25,22 +26,21 @@ public class FlashlightToggle : MonoBehaviour
         transform.rotation=Quaternion.Lerp(transform.rotation,target,0.3f);
         
         //toggle flashlight on key down
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            //toggle light
-            isOn = !isOn;
-            //turn light on
-            if (isOn)
-            {
-                
-                lightGO.SetActive(true);
-            }
-            //turn light off
-            else
-            {
-                lightGO.SetActive(false);
+        
+        
+    }
 
-            }
+    public void OnMouseDown()
+    {
+        if (isOn == false)
+        {
+            lightGO.SetActive(true);
+            isOn = true;
+        }
+        else
+        {
+            isOn = false;
+            lightGO.SetActive(false);
         }
     }
 }
