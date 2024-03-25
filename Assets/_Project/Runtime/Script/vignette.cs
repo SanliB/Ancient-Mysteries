@@ -8,17 +8,9 @@ public class vignette : MonoSingleton<vignette>
 {   
     private Volume v;
     public Vignette vg;
-    // Start is called before the first frame update
     void Start()
     {
         v = GetComponent<Volume>();
-        
         v.profile.TryGet(out vg);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
