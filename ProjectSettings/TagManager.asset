@@ -10,6 +10,8 @@ TagManager:
   - Paper
   - Cat
   - Anubis
+  - WallKey
+  - WallPuzzleButton
   layers:
   - Default
   - TransparentFX
