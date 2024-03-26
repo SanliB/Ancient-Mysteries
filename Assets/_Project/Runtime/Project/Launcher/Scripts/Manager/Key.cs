@@ -16,11 +16,10 @@ public class Key : MonoSingleton<Key>
     {
         if (gameObject.tag == "Key")
         {
-            var mer = deneme.canvasManagerforGameEpisodes.Instance;
-            mer.AddItemForEnv(keyimage);
+            deneme.canvasManagerforGameEpisodes.Instance.AddItemForEnv(keyimage);
             KeyAll.SetActive(false);
             //KeyImage.enabled = true;
-            //status = true;
+            status = true;
         }
 
     }

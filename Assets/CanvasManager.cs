@@ -31,6 +31,7 @@ namespace deneme
         public GameObject ComeBackButtonForSettings;
         public GameObject MenuPanelforBackground;
         public Sprite FlashLigtIcon;
+        public Sprite EnvBackGroundSprite;
         private bool[] ButtonisActive;
         private bool EnvOpenorClose;
         private float envstartposy;
@@ -113,9 +114,10 @@ namespace deneme
 
         public void DeleteItemForEnv(Sprite deleteItem)
         {
-            EnvItemImages[SearchItemForEnv(deleteItem)].SetActive(false);
-            EnvDictionary[SearchItemForEnv(deleteItem)] = false;
-            EnvItemImages[SearchItemForEnv(deleteItem)].GetComponent<Image>().sprite = null;
+            int index = SearchItemForEnv(deleteItem);
+            EnvDictionary[index] = false;
+            EnvItemImages[index].GetComponent<Image>().sprite = EnvBackGroundSprite;
+            EnvItemImages[index].SetActive(false);
         }
 
         public void ifclickbackpack()

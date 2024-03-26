@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using deneme;
 
 public class Paper : MonoSingleton<Paper>
 {
@@ -10,6 +11,7 @@ public class Paper : MonoSingleton<Paper>
     public GameObject Chest;
     public GameObject PaperPanel;
     public Image PaperImage;
+    public Sprite PaperSprite;
 
     private void OnMouseDown()
     {
@@ -20,11 +22,12 @@ public class Paper : MonoSingleton<Paper>
             
             if (gameObject.tag == "Paper")
             {
+                deneme.canvasManagerforGameEpisodes.Instance.AddItemForEnv(PaperSprite);
                 PaperPanel.SetActive(true);
-                Debug.Log("sfasfas");
                 gameObject.SetActive(false);
+
                 status = true;
-                PaperImage.enabled = true;
+                //PaperImage.enabled = true;
             }
         }
     }
