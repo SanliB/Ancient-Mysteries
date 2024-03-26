@@ -3,21 +3,25 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using deneme;
 
 public class Key : MonoSingleton<Key>
 {
-
     public bool status = false;
     public GameObject KeyAll;
     public Image KeyImage;
+    public Sprite keyimage;
+
     private void OnMouseDown()
     {
         if (gameObject.tag == "Key")
         {
+            var mer = deneme.canvasManagerforGameEpisodes.Instance;
+            mer.AddItemForEnv(keyimage);
             KeyAll.SetActive(false);
-            KeyImage.enabled = true;
-            status = true;
+            //KeyImage.enabled = true;
+            //status = true;
         }
-         
+
     }
 }
