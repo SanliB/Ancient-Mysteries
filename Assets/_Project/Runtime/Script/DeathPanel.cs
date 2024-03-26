@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,7 +23,10 @@ public class DeathPanel : MonoSingleton<DeathPanel>
         a.intensity.value = 0;
         gameObject.SetActive(false);
         Time.timeScale = 1;
-        //CharacterController.Instance._rb.transform.position= new Vector3(-18,-10,18);
+        CharacterController _cc = CharacterController2.Instance._cc;
+        _cc.enabled = false;
+        _cc.transform.position=new Vector3(-19,-8.5f,18);
+        _cc.enabled = true;
     }
 
     void Update()

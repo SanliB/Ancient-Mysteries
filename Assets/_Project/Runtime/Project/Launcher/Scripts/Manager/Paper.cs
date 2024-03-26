@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Paper : MonoSingleton<Paper>
 {
     public bool status = false;
     public GameObject Chest;
     public GameObject PaperPanel;
+    public Image PaperImage;
 
     private void OnMouseDown()
     {
@@ -22,6 +24,7 @@ public class Paper : MonoSingleton<Paper>
                 Debug.Log("sfasfas");
                 gameObject.SetActive(false);
                 status = true;
+                PaperImage.enabled = true;
             }
         }
     }

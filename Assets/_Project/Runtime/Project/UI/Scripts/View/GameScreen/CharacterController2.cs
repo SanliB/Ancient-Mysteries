@@ -8,7 +8,7 @@ using UnityEngine.AI;
 public class CharacterController2 : MonoSingleton<CharacterController2>
 {
     public FixedJoystick Joystick;
-    private CharacterController _cc;
+    public CharacterController _cc;
     public NavMeshAgent Agent;
     private float _horizontal;
     private float _vertical;
@@ -43,7 +43,6 @@ public class CharacterController2 : MonoSingleton<CharacterController2>
         {
             velocity += Gravity * Mass * Time.deltaTime;
         }
-        //move.y=velocity;
     }
 
     private void MoveCharacter(){
