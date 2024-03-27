@@ -5,7 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/_Project/Runtime/Scenes/Demo_Scene.unity
+    guid: 14a2c64dbd956d346b9f674d144cc297
+  - enabled: 0
+    path: Assets/Decrepit Dungeon LITE/EXAMPLE/DeathScene.unity
+    guid: 350a1ba2a31598d48bce004924d18410
+  - enabled: 1
+    path: Assets/_Project/Runtime/Scenes/SettingsMenu.unity
+    guid: eb47cbd1f3f16674fb4fbedc33c63ebb
+  - enabled: 1
+    path: Assets/_Project/Runtime/Scenes/MainMenu.unity
+    guid: c09999a276722754cbed2bf7bc84b44f
   m_configObjects: {}

@@ -10,6 +10,15 @@ public class WallPuzzle : MonoBehaviour
     public GameObject[] ButtonList;
     public int sayac=0;
     public bool status=false;
+<<<<<<< HEAD
+=======
+    private GameObject door;
+
+    public void Awake()
+    {
+        door = DoorController.Instance.Door(1);
+    }
+>>>>>>> berkayBranch
 
     private void OnMouseDown()
     {
@@ -35,7 +44,11 @@ public class WallPuzzle : MonoBehaviour
             if(sayac==ButtonList.Length && status==false){
                 status=true;
                 SoundManager.Instance.Audio(1);
+<<<<<<< HEAD
                 //door.transform.position=new Vector3(door.transform.position.x,a,door.transform.position.z);
+=======
+                door.GetComponent<Animator>().SetBool("DoorStatus", true);
+>>>>>>> berkayBranch
                 Debug.Log("kapı açıldı");
             }
         }

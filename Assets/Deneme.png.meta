@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: d84dea1734d4b8640a1bb73fd3607254
+=======
+guid: f9ca22761ba987d4aac35daabc6a13a7
+>>>>>>> berkayBranch
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

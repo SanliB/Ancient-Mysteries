@@ -175,11 +175,19 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4058038859397656}
+<<<<<<< HEAD
   - component: {fileID: 6118026418342257611}
   - component: {fileID: 5004388574595732619}
   m_Layer: 0
   m_Name: Cat_Statue
   m_TagString: Untagged
+=======
+  - component: {fileID: 4737374451711128399}
+  - component: {fileID: 846593104059793373}
+  m_Layer: 0
+  m_Name: Cat_Statue
+  m_TagString: Cat
+>>>>>>> berkayBranch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -201,7 +209,11 @@ Transform:
   - {fileID: 4807869215327920}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!114 &6118026418342257611
+=======
+--- !u!114 &4737374451711128399
+>>>>>>> berkayBranch
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -213,8 +225,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0efd2d8cae9bd9439dddc57211d0d4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   TrueRotStatus: {x: 0, y: 0, z: 0}
 --- !u!65 &5004388574595732619
+=======
+  TrueRot: {x: 0, y: 0, z: 0}
+  _trueRotStatus: 0
+  CatList: []
+  sayac: 0
+  status: 0
+--- !u!65 &846593104059793373
+>>>>>>> berkayBranch
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -233,5 +254,10 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
+<<<<<<< HEAD
   m_Size: {x: 1, y: 2.2393382, z: 1}
   m_Center: {x: 0, y: 1.2435247, z: 0}
+=======
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+>>>>>>> berkayBranch

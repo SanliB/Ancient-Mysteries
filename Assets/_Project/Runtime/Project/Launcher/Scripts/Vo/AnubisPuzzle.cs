@@ -10,6 +10,7 @@ public class AnubisPuzzle : MonoBehaviour
     public bool status=false;
     GameObject door;
     float a;
+    public Light Anubislight;
     
     void Awake(){
         door= DoorController.Instance.Door(0);
@@ -40,7 +41,9 @@ public class AnubisPuzzle : MonoBehaviour
                 status=true;
                 SoundManager.Instance.Audio(1);
                 door.transform.position=new Vector3(door.transform.position.x,a,door.transform.position.z);
+                Anubislight.enabled = true;
                 Debug.Log("kapı açıldı");
+                
             }
         }
     }

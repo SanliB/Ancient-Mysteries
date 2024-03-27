@@ -30,7 +30,10 @@ public class CameraController : MonoBehaviour
         else if(_limitY<=-30){
             _limitY=-30;
         }
+<<<<<<< HEAD
         Debug.Log("first " + _limitY);
+=======
+>>>>>>> berkayBranch
         _xRot = Mathf.Clamp(_limitY, -30f, 30f);
         Debug.Log("second " + _limitY);
         transform.localRotation=Quaternion.Euler(_xRot,_limitX, 0);

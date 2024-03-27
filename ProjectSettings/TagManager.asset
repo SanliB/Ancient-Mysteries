@@ -4,19 +4,30 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - Cat
   - Anubis
   - WallKey
   - Stair
+=======
+  - Key
+  - Chest
+  - Character
+  - Paper
+  - Cat
+  - Anubis
+  - WallKey
+  - WallPuzzleButton
+>>>>>>> berkayBranch
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - post process
   - Water
   - UI
-  - 
-  - 
+  - Navmesh
+  - Character
   - 
   - 
   - 
