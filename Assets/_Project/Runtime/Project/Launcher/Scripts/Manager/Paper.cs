@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using deneme;
+using EnvController;
 
 public class Paper : MonoSingleton<Paper>
 {
@@ -35,5 +36,7 @@ public class Paper : MonoSingleton<Paper>
     public void PaperOnClick() 
     {
         PaperPanel.SetActive(false);
+        if (EnvController.EnvController.Instance.WhichButtonSelected())
+            EnvController.EnvController.Instance.clearSelectedStatus();
     }
 }
