@@ -12,6 +12,8 @@ TagManager:
   - Anubis
   - WallKey
   - WallPuzzleButton
+  - Lever
+  - Glass
   layers:
   - Default
   - TransparentFX
