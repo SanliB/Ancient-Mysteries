@@ -23,10 +23,10 @@ public class Paper : MonoSingleton<Paper>
             
             if (gameObject.tag == "Paper")
             {
+                SoundManager.Instance.Audio(5);
                 deneme.canvasManagerforGameEpisodes.Instance.AddItemForEnv(PaperSprite);
                 PaperPanel.SetActive(true);
                 gameObject.SetActive(false);
-
                 status = true;
                 //PaperImage.enabled = true;
             }

@@ -19,12 +19,12 @@ public class Lever_puzzle : MonoBehaviour
     
     void Awake(){
         glass= DoorController.Instance.Door(2);
-        //a=glass.transform.position.y+4;
     }
     private void OnMouseDown()
     {
         Debug.Log(gameObject.tag);
         if(gameObject.tag=="Lever"){
+            SoundManager.Instance.Audio(6);
             if (lever==70)
             {
                 transform.rotation = Quaternion.Euler(220, 0, 0);

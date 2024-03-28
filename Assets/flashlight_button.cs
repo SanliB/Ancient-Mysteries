@@ -16,6 +16,7 @@ public class flashlight_button : MonoBehaviour
 
     public void OnMouseDown()
     {
+        SoundManager.Instance.Audio(7);
         deneme.canvasManagerforGameEpisodes.Instance.AddItemForEnv(FlashlightImage);
         Debug.Log("flash alindi");
         Flash_Button.SetActive(true);

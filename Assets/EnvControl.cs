@@ -74,6 +74,7 @@ namespace EnvController
             EnvSelectedPictures[index].SetActive(true);
             if (EnvItemPictures[index].GetComponent<Image>().sprite == Paper)
             {
+                SoundManager.Instance.Audio(5);
                 PaperPanel.SetActive(true);
             }
         }

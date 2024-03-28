@@ -11,6 +11,7 @@ public class DeathPanel : MonoSingleton<DeathPanel>
 
     public void returnGame()
     {
+        SoundManager.Instance.Audio(4);
         b = true;
         gameObject.SetActive(true);
         a = vignette.Instance.vg;

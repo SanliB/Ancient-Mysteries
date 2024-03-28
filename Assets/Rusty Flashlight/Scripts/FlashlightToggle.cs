@@ -6,32 +6,24 @@ using UnityEngine.Experimental.GlobalIllumination;
 
 public class FlashlightToggle : MonoBehaviour
 {
-    public GameObject lightGO; //light gameObject to work with
-    private bool isOn = false; //is flashlight on or off?
+    public GameObject lightGO;
+    private bool isOn = false;
     public Camera Cam;
 
-    // Use this for initialization
     void Start()
     {
-        //set default off
         lightGO.SetActive(isOn);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
-
         Quaternion target = Quaternion.Euler(Cam.transform.rotation.eulerAngles.x+90, Cam.transform.rotation.eulerAngles.y, Cam.transform.rotation.eulerAngles.z);
-        transform.rotation=Quaternion.Lerp(transform.rotation,target,0.3f);
-        
-        //toggle flashlight on key down
-        
-        
+        transform.rotation=Quaternion.Lerp(transform.rotation,target,1f);
     }
 
     public void OnMouseDown()
     {
+        SoundManager.Instance.Audio(7);
         if (isOn == false)
         {
             lightGO.SetActive(true);

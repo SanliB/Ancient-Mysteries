@@ -44,6 +44,9 @@ public class WallPuzzle : MonoBehaviour
                 door.GetComponent<Animator>().SetBool("DoorStatus", true);
                 Debug.Log("kapı açıldı");
             }
+            else{
+                SoundManager.Instance.Audio(2);
+            }
         }
     }
 }
