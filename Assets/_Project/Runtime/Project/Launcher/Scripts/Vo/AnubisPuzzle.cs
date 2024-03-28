@@ -6,15 +6,15 @@ public class AnubisPuzzle : MonoBehaviour
     public Vector3 TrueRot;
     public bool _trueRotStatus=false;
     public GameObject[] CatList;
-    public int sayac=0;
+    public int Counter=0;
     public bool status=false;
-    GameObject door;
+    private GameObject _door;
     float a;
     public Light Anubislight;
     
     void Awake(){
-        door= DoorController.Instance.Door(0);
-        a=door.transform.position.y+4;
+        _door= DoorController.Instance.Door(0);
+        a=_door.transform.position.y+4;
     }
     private void OnMouseDown()
     {
@@ -31,19 +31,18 @@ public class AnubisPuzzle : MonoBehaviour
             }
         }
         if(gameObject.tag=="Anubis"){
-            sayac=0;
+            Counter=0;
             for(int i=0; i<CatList.Length;i++){
                 if(CatList[i].GetComponent<AnubisPuzzle>()._trueRotStatus){
-                    sayac++;
+                    Counter++;
                 }
             }
-            if(sayac==CatList.Length && status==false){
+            if(Counter==CatList.Length && status==false){
                 status=true;
                 SoundManager.Instance.Audio(1);
-                door.transform.position=new Vector3(door.transform.position.x,a,door.transform.position.z);
+                _door.transform.position=new Vector3(_door.transform.position.x,a,_door.transform.position.z);
                 Anubislight.enabled = true;
                 Debug.Log("kapı açıldı");
-                
             }
         }
     }

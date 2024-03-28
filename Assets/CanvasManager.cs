@@ -61,7 +61,7 @@ namespace deneme
             BackPackTransform = BackPack.GetComponent<RectTransform>();
             FlashLightTransform = FlashLight.GetComponent<RectTransform>();
             envstartposy = EnvPanelTransform.anchoredPosition.y;
-            AddItemForEnv(FlashLigtIcon);
+            //AddItemForEnv(FlashLigtIcon);
         }
 
         void Start()

@@ -5,29 +5,21 @@ using UnityEngine;
 
 public class flashlight_button : MonoBehaviour
 {
-    public GameObject flash_button;
-    public Sprite flashlightImage;
-    public GameObject flash;
-
-    public GameObject door;
+    public GameObject Flash_Button;
+    public Sprite FlashlightImage;
+    private GameObject _door;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _door= DoorController.Instance.Door(3);
     }
 
     public void OnMouseDown()
     {
-        deneme.canvasManagerforGameEpisodes.Instance.AddItemForEnv(flashlightImage);
+        deneme.canvasManagerforGameEpisodes.Instance.AddItemForEnv(FlashlightImage);
         Debug.Log("flash alindi");
-        flash_button.SetActive(true);
-        flash.SetActive(false);
-        door.transform.Rotate(0,90,0);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Flash_Button.SetActive(true);
+        gameObject.SetActive(false);
+        _door.transform.Rotate(0,90,0);
     }
 }
