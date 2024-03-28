@@ -25,7 +25,12 @@ public class Chest : MonoBehaviour
     {
         if(!a && Key.Instance.status)
         {
+            SoundManager.Instance.Audio(13);
             ChestStatus = true;
+        }
+        else
+        {
+            SoundManager.Instance.Audio(9);
         }
     }
 }

@@ -16,6 +16,7 @@ public class Key : MonoSingleton<Key>
     {
         if (gameObject.tag == "Key")
         {
+            SoundManager.Instance.Audio(11);
             deneme.canvasManagerforGameEpisodes.Instance.AddItemForEnv(keyimage);
             KeyAll.SetActive(false);
             //KeyImage.enabled = true;

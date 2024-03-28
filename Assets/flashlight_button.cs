@@ -22,5 +22,6 @@ public class flashlight_button : MonoBehaviour
         Flash_Button.SetActive(true);
         gameObject.SetActive(false);
         _door.transform.Rotate(0,90,0);
+        SoundManager.Instance.Audio(12);
     }
 }

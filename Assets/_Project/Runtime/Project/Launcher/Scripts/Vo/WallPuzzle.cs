@@ -39,8 +39,8 @@ public class WallPuzzle : MonoBehaviour
                 }
             }
             if(sayac==ButtonList.Length && status==false){
+                SoundManager.Instance.Audio(10);
                 status=true;
-                SoundManager.Instance.Audio(1);
                 door.GetComponent<Animator>().SetBool("DoorStatus", true);
                 Debug.Log("kapı açıldı");
             }

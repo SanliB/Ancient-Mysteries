@@ -130,6 +130,7 @@ namespace deneme
 
         public void ifClickMenuButton()
         {
+            SoundManager.Instance.Audio(14);
             Time.timeScale = 0;
             MenuPanel.SetActive(true);
             MenuPanelforBackground.SetActive(true);
@@ -141,6 +142,7 @@ namespace deneme
 
         public void ifClickComeBackButton()
         {
+            SoundManager.Instance.Audio(14);
             Time.timeScale = 1;
             MenuPanel.SetActive(false);
             MenuPanelforBackground.SetActive(false);
@@ -152,6 +154,7 @@ namespace deneme
 
         public void ifClickSettingsButton()
         {
+            SoundManager.Instance.Audio(14);
             MenuPanel.SetActive(false);
             SettingsPanel.SetActive(true);
             VolumeSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("generalvolume");
@@ -159,6 +162,7 @@ namespace deneme
 
         public void ifClickComeBackButtonForSettings()
         {
+            SoundManager.Instance.Audio(14);
             MenuPanel.SetActive(true);
             SettingsPanel.SetActive(false);
         }
@@ -171,6 +175,7 @@ namespace deneme
 
         public void ifClickMainMenuButton()
         {
+            SoundManager.Instance.Audio(14);
             Time.timeScale = 1;
             mainmenuscript.FirstEntry = true;
             SceneManager.LoadScene(2);
