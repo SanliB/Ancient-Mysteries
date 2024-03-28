@@ -122,6 +122,7 @@ namespace deneme
 
         public void ifclickbackpack()
         {
+            SoundManager.Instance.Audio(8);
             float targetPosition = EnvOpenorClose ? envstartposy : (envstartposy + 100);
             EnvPanelTransform.DOAnchorPosY(targetPosition, 1);
             EnvOpenorClose = !EnvOpenorClose;
