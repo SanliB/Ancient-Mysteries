@@ -11,7 +11,7 @@ public class Settings : MonoBehaviour
     public void GetAudioVolume()
     {
         Audio.volume = Sounds.value;
-        Audio.Play();
+        //Audio.Play();
 
     }
 

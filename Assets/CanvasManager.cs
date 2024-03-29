@@ -30,7 +30,7 @@ namespace deneme
         public GameObject VolumeSlider;
         public GameObject ComeBackButtonForSettings;
         public GameObject MenuPanelforBackground;
-        public Sprite FlashLigtIcon;
+        //public Sprite FlashLigtIcon;
         public Sprite EnvBackGroundSprite;
         private bool[] ButtonisActive;
         private bool EnvOpenorClose;
@@ -157,7 +157,7 @@ namespace deneme
             SoundManager.Instance.Audio(14);
             MenuPanel.SetActive(false);
             SettingsPanel.SetActive(true);
-            VolumeSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("generalvolume");
+            VolumeSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("audioVolume");
         }
 
         public void ifClickComeBackButtonForSettings()
@@ -169,7 +169,7 @@ namespace deneme
 
         public void ifChangeVolume()
         {
-            PlayerPrefs.SetFloat("generalvolume", VolumeSlider.GetComponent<Slider>().value);
+            PlayerPrefs.SetFloat("audioVolume", VolumeSlider.GetComponent<Slider>().value);
             //VolumeSlider.GetComponent<Slider>().value = 50;
         }
 
