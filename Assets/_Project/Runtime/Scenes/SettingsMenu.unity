@@ -565,7 +565,6 @@ GameObject:
   m_Component:
   - component: {fileID: 668145834}
   - component: {fileID: 668145833}
-  - component: {fileID: 668145835}
   m_Layer: 0
   m_Name: SettingsController
   m_TagString: Untagged
@@ -585,7 +584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ca35d3a6b8f3af4ab51f2a780ce612f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicSlider: {fileID: 0}
+  musicSlider: {fileID: 1308216882}
   audioSlider: {fileID: 1310428642}
 --- !u!4 &668145834
 Transform:
@@ -602,19 +601,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &668145835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 668145832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74d97d6c977e15a49bf33c2e9df567e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Sounds: {fileID: 1310428642}
 --- !u!1 &746846224
 GameObject:
   m_ObjectHideFlags: 0
@@ -1229,9 +1215,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1221478749}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1309,9 +1295,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1408041572}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1850,8 +1836,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -197.00014, y: -220}
-  m_SizeDelta: {x: 463.92, y: 50}
+  m_AnchoredPosition: {x: -223.32022, y: -220}
+  m_SizeDelta: {x: 411.2798, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1519264280
 MonoBehaviour:
@@ -1937,7 +1923,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -45.27527, w: 0}
+  m_margin: {x: 0, y: 0, z: -3.1631775, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

@@ -8,16 +8,20 @@ public class Settings : MonoBehaviour
     public Slider Sounds;
     public AudioSource Audio;
 
+    private void Awake()
+    {
+        Audio.volume = PlayerPrefs.GetFloat("audioVolume");
+    }
     public void GetAudioVolume()
     {
-        Audio.volume = Sounds.value;
+        Audio.volume = PlayerPrefs.GetFloat("audioVolume");
         //Audio.Play();
 
     }
 
     private void Start()
     {
-        PlayerPrefs.SetFloat("audioVolume", Audio.volume);
+       // PlayerPrefs.SetFloat("audioVolume", Audio.volume);
     }
 
 }
