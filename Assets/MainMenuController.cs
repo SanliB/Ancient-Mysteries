@@ -31,16 +31,16 @@ namespace MainMenu
         {
             if (FirstEntry)
             {
-                if (PlayerPrefs.HasKey("musicvolume"))
+                if (PlayerPrefs.HasKey("musicVolume"))
                 {
-                    FindObjectOfType<AudioSource>().volume = PlayerPrefs.GetFloat("musicvolume");
+                    FindObjectOfType<AudioSource>().volume = PlayerPrefs.GetFloat("musicVolume");
                 }
                 else
                 {
-                    PlayerPrefs.SetFloat("musicvolume", FindObjectOfType<AudioSource>().volume);
+                    PlayerPrefs.SetFloat("musicVolume", FindObjectOfType<AudioSource>().volume);
                 }
-                if (!PlayerPrefs.HasKey("generalvolume"))
-                    PlayerPrefs.SetFloat("generalvolume", 100);
+                if (!PlayerPrefs.HasKey("audioVolume"))
+                    PlayerPrefs.SetFloat("audioVolume", 100);
                 FirstEntry = false;
             }
         }

@@ -18,8 +18,8 @@ public class settingsscript : MonoBehaviour
     void Awake()
     {
         audioSource = FindObjectOfType<AudioSource>();
-        musicSlider.value = PlayerPrefs.GetFloat("musicvolume");
-        audioSlider.value = PlayerPrefs.GetFloat("generalvolume");
+        musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        audioSlider.value = PlayerPrefs.GetFloat("audioVolume");
     }
 
     // Update is called once per frame
@@ -29,13 +29,13 @@ public class settingsscript : MonoBehaviour
 
     public void GetMusicVolume()
     {
-        PlayerPrefs.SetFloat("musicvolume", musicSlider.value);
+        PlayerPrefs.SetFloat("musicVolume", musicSlider.value);
         audioSource.volume = musicSlider.value;
     }
 
     public void GetAudioVolume()
     {
-        PlayerPrefs.SetFloat("generalvolume", audioSlider.value);
+        PlayerPrefs.SetFloat("audioVolume", audioSlider.value);
     }
 
     public void OnClickComeBackButton()
