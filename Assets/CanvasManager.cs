@@ -27,7 +27,8 @@ namespace deneme
         public GameObject SettingsButtonForMenuPanel;
         public GameObject MainMenuButtonForMenuPanel;
         public GameObject SettingsPanel;
-        public GameObject VolumeSlider;
+        public GameObject MusicSlider;
+        public GameObject EffectSlider;
         public GameObject ComeBackButtonForSettings;
         public GameObject MenuPanelforBackground;
         //public Sprite FlashLigtIcon;
@@ -157,7 +158,8 @@ namespace deneme
             SoundManager.Instance.Audio(14);
             MenuPanel.SetActive(false);
             SettingsPanel.SetActive(true);
-            VolumeSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("audioVolume");
+            MusicSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("musicVolume");
+            EffectSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("audioVolume");
         }
 
         public void ifClickComeBackButtonForSettings()
@@ -167,9 +169,15 @@ namespace deneme
             SettingsPanel.SetActive(false);
         }
 
-        public void ifChangeVolume()
+        public void ifChangeMusicVolume()
         {
-            PlayerPrefs.SetFloat("audioVolume", VolumeSlider.GetComponent<Slider>().value);
+            PlayerPrefs.SetFloat("musicVolume", MusicSlider.GetComponent<Slider>().value);
+            //VolumeSlider.GetComponent<Slider>().value = 50;
+        }
+
+        public void ifChangeEffectVolume()
+        {
+            PlayerPrefs.SetFloat("audioVolume", EffectSlider.GetComponent<Slider>().value);
             //VolumeSlider.GetComponent<Slider>().value = 50;
         }
 
