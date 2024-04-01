@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections;
 using UnityEngine;
 
 public class AnubisPuzzle : MonoBehaviour
@@ -12,28 +13,40 @@ public class AnubisPuzzle : MonoBehaviour
     private GameObject _door;
     float a;
     public Light Anubislight;
+    private bool isfinish = true;
     
     void Awake(){
         _door= DoorController.Instance.Door(0);
         a=_door.transform.position.y+4;
     }
+
+    IEnumerator WaitSecond(bool TrueOrFalse, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        isfinish = TrueOrFalse;
+    }
     private void OnMouseDown()
     {
         Debug.Log(gameObject.tag);
         if (gameObject.tag=="Cat"){
-            SoundManager.Instance.Audio(0);
+            if (isfinish)
+            {
+                isfinish = false;
+                SoundManager.Instance.Audio(0);
 
-            //transform.Rotate(0,45,0);
-            Vector3 newEulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 45, transform.eulerAngles.z);
-            transform.DORotate(newEulerAngles, 0.2f);
-            _catStatus = newEulerAngles;
-            if (TrueRot.y <= _catStatus.y &&  _catStatus.y<=TrueRot.y+1)
-            {
-                _trueRotStatus=true;
-            }
-            else
-            {
-                _trueRotStatus=false;
+                //transform.Rotate(0,45,0);
+                Vector3 newEulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 45, transform.eulerAngles.z);
+                transform.DORotate(newEulerAngles, 0.3f);
+                StartCoroutine(WaitSecond(true, 0.3f));
+                _catStatus = newEulerAngles;
+                if (TrueRot.y <= _catStatus.y &&  _catStatus.y<=TrueRot.y+1)
+                {
+                    _trueRotStatus=true;
+                }
+                else
+                {
+                    _trueRotStatus=false;
+                }
             }
         }
         if (gameObject.tag=="Anubis"){

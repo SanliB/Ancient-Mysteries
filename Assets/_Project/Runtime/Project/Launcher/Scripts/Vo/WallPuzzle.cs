@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,24 +12,36 @@ public class WallPuzzle : MonoBehaviour
     public int sayac=0;
     public bool status=false;
     private GameObject door;
+    private bool isFinish = true;
 
     public void Awake()
     {
         door = DoorController.Instance.Door(1);
+    }
+    IEnumerator WaitSecond(bool TrueOrFalse, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        isFinish = TrueOrFalse;
     }
 
     private void OnMouseDown()
     {
         Debug.Log(gameObject.tag);
         if(gameObject.tag=="WallKey"){
-            SoundManager.Instance.Audio(0);
-            transform.Rotate(0,0,72);
-            _buttonStatus=transform.rotation.eulerAngles;
-            if(TrueRot.y <= _buttonStatus.y &&  _buttonStatus.y<=TrueRot.y+1){
-                _trueRotStatus=true;
-            }
-            else{
-                _trueRotStatus=false;
+            if (isFinish)
+            {
+                isFinish = false;
+                SoundManager.Instance.Audio(0);
+                Vector3 newEulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + 72);
+                transform.DORotate(newEulerAngles, 0.3f);
+                StartCoroutine(WaitSecond(true, 0.3f));
+                _buttonStatus = newEulerAngles;
+                if (TrueRot.y <= _buttonStatus.y &&  _buttonStatus.y <= TrueRot.y+1){
+                    _trueRotStatus=true;
+                }
+                else{
+                    _trueRotStatus=false;
+                }
             }
         }
         if(gameObject.tag=="WallPuzzleButton"){
