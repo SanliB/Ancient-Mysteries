@@ -1,29 +1,82 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 public class DeathPanel : MonoSingleton<DeathPanel>
 {
-    private Vignette a;
     public bool b;
+    public TextMeshProUGUI YouDiedText;
+    public Button TryAgainButton;
+    public TextMeshProUGUI TryAgainButtonText;
+    private Vignette a;
+    private Image TryAgainButtonImage;
+
+    private void Awake()
+    {
+        TryAgainButtonImage = TryAgainButton.GetComponent<Image>();
+    }
 
     public void returnGame()
     {
         SoundManager.Instance.Audio(4);
         b = true;
         gameObject.SetActive(true);
+        StartCoroutine(TextFont(YouDiedText, 77.5f));
+        StartCoroutine(ScaleUIOverTime(TryAgainButtonImage.GetComponent<RectTransform>(), new Vector3(1f, 1f, 1f), 0.5f));
         a = vignette.Instance.vg;
-        //a.intensity.value = 0;
+        a.intensity.value = 0;
         Time.timeScale = 0;
     }
-    
+
+    IEnumerator ScaleUIOverTime(RectTransform uiElement, Vector3 targetScale, float duration)
+    {
+        Vector3 initialScale = uiElement.localScale; // Baþlangýç ölçeði
+        float time = 0;
+
+        while (time < duration)
+        {
+            // Time.timeScale 0 iken bile zamaný artýr
+            time += Time.unscaledDeltaTime;
+
+            // UI elementini yavaþça hedef ölçeðe doðru ölçeklendir
+            uiElement.localScale = Vector3.Lerp(initialScale, targetScale, time / duration);
+
+            yield return null; // Bir sonraki frame'e kadar bekle
+        }
+
+        // Son ölçeði hedef ölçeðe ayarla
+        uiElement.localScale = targetScale;
+    }
+
+    IEnumerator TextFont(TextMeshProUGUI text, float FinishFontSize)
+    {
+        float startRealTime = Time.realtimeSinceStartup;
+        float delay = 0.02f; // Bekleme süresi 0.02 saniye olarak ayarlandý
+        while (text.fontSize > FinishFontSize)
+        {
+            text.fontSize--;
+
+            // Gerçek zamanlý bekleme süresi hesaplama
+            while (Time.realtimeSinceStartup < startRealTime + delay)
+            {
+                yield return null; // Bir sonraki frame'e kadar bekle
+            }
+            startRealTime += delay; // Sonraki iterasyon için baþlangýç zamanýný güncelle
+        }
+    }
+
     public void DieScene()
     {
         a.intensity.value = 0;
         gameObject.SetActive(false);
         Time.timeScale = 1;
+        YouDiedText.fontSize = 100;
+        TryAgainButtonImage.GetComponent<RectTransform>().localScale = new Vector3(1.5f, 1.5f, 1f);
+        //TryAgainButtonText.fontSize = 50;
         CharacterController _cc = CharacterController2.Instance._cc;
         _cc.enabled = false;
         _cc.transform.position=new Vector3(-19,-8.5f,18);

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class AnubisPuzzle : MonoBehaviour
@@ -19,25 +20,33 @@ public class AnubisPuzzle : MonoBehaviour
     private void OnMouseDown()
     {
         Debug.Log(gameObject.tag);
-        if(gameObject.tag=="Cat"){
+        if (gameObject.tag=="Cat"){
             SoundManager.Instance.Audio(0);
-            transform.Rotate(0,45,0);
-            _catStatus=transform.rotation.eulerAngles;
-            if(TrueRot.y <= _catStatus.y &&  _catStatus.y<=TrueRot.y+1){
+
+            //transform.Rotate(0,45,0);
+            Vector3 newEulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 45, transform.eulerAngles.z);
+            transform.DORotate(newEulerAngles, 0.2f);
+            _catStatus = newEulerAngles;
+            if (TrueRot.y <= _catStatus.y &&  _catStatus.y<=TrueRot.y+1)
+            {
                 _trueRotStatus=true;
             }
-            else{
+            else
+            {
                 _trueRotStatus=false;
             }
         }
-        if(gameObject.tag=="Anubis"){
+        if (gameObject.tag=="Anubis"){
             Counter=0;
-            for(int i=0; i<CatList.Length;i++){
-                if(CatList[i].GetComponent<AnubisPuzzle>()._trueRotStatus){
+            for (int i=0; i<CatList.Length;i++)
+            {
+                if (CatList[i].GetComponent<AnubisPuzzle>()._trueRotStatus)
+                {
                     Counter++;
                 }
             }
-            if(Counter==CatList.Length && status==false){
+            if (Counter==CatList.Length && status==false)
+            {
                 status=true;
                 SoundManager.Instance.Audio(1);
                 _door.transform.position=new Vector3(_door.transform.position.x,a,_door.transform.position.z);

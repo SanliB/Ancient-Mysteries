@@ -10,7 +10,7 @@ namespace MainMenu
     public class mainmenuscript : MonoBehaviour
     {
         // Start is called before the first frame update
-        public static bool FirstEntry = true;
+        public static bool FirstEntry = true; 
 
         public void ifclickplaybutton()
         {
