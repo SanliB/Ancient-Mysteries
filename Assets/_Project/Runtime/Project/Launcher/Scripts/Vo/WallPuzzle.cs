@@ -14,6 +14,8 @@ public class WallPuzzle : MonoBehaviour
     private GameObject door;
     private bool isFinish = true;
 
+    private Transform Angles;
+
     public void Awake()
     {
         door = DoorController.Instance.Door(1);
@@ -26,17 +28,20 @@ public class WallPuzzle : MonoBehaviour
 
     private void OnMouseDown()
     {
+        Angles = gameObject.GetComponent<Transform>();
         Debug.Log(gameObject.tag);
         if(gameObject.tag=="WallKey"){
             if (isFinish)
             {
                 isFinish = false;
                 SoundManager.Instance.Audio(0);
-                Vector3 newEulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + 72);
+                Vector3 newEulerAngles = new Vector3(Angles.eulerAngles.x, Angles.eulerAngles.y, Angles.eulerAngles.z + 72);
                 transform.DORotate(newEulerAngles, 0.3f);
                 StartCoroutine(WaitSecond(true, 0.3f));
                 _buttonStatus = newEulerAngles;
-                if (TrueRot.y <= _buttonStatus.y &&  _buttonStatus.y <= TrueRot.y+1){
+                Debug.Log(TrueRot.y + " " + _buttonStatus.y + " " + Angles.eulerAngles.z);
+                if ((TrueRot.z - 1) <= (Angles.eulerAngles.z - 18) &&  (Angles.eulerAngles.z - 18) <= (TrueRot.z + 1))
+                {
                     _trueRotStatus=true;
                 }
                 else{
