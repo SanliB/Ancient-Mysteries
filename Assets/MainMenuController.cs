@@ -10,15 +10,21 @@ namespace MainMenu
     public class mainmenuscript : MonoBehaviour
     {
         // Start is called before the first frame update
-        public static bool FirstEntry = true; 
+        public static bool FirstEntry = true;
+        public AudioSource audio;
+        private static AudioSource FirstAudio;
 
         public void ifclickplaybutton()
         {
+            // DontDestroyOnLoad(audio);
+            FirstAudio.Play();
             SceneManager.LoadScene(0);
         }
 
         public void ifclicksettingsbutton()
         {
+            // DontDestroyOnLoad(audio);
+            FirstAudio.Play();
             SceneManager.LoadScene(1);
         }
 
@@ -29,6 +35,10 @@ namespace MainMenu
 
         void Start()
         {
+            if (FirstAudio == null)
+                FirstAudio = audio;
+            else
+                Destroy(audio);
             if (FirstEntry)
             {
                 if (PlayerPrefs.HasKey("musicVolume"))
