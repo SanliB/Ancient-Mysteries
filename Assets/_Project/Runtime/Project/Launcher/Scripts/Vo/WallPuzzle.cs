@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class WallPuzzle : MonoBehaviour
 {
-    private Vector3 _buttonStatus;
     public Vector3 TrueRot;
     public bool _trueRotStatus=false;
     public GameObject[] ButtonList;
@@ -28,25 +27,20 @@ public class WallPuzzle : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Angles = gameObject.GetComponent<Transform>();
         Debug.Log(gameObject.tag);
         if(gameObject.tag=="WallKey"){
             if (isFinish)
             {
                 isFinish = false;
+                Angles = gameObject.GetComponent<Transform>();
                 SoundManager.Instance.Audio(0);
                 Vector3 newEulerAngles = new Vector3(Angles.eulerAngles.x, Angles.eulerAngles.y, Angles.eulerAngles.z + 72);
-                transform.DORotate(newEulerAngles, 0.3f);
+                Angles.DORotate(newEulerAngles, 0.3f);
                 StartCoroutine(WaitSecond(true, 0.3f));
-                _buttonStatus = newEulerAngles;
-                Debug.Log(TrueRot.y + " " + _buttonStatus.y + " " + Angles.eulerAngles.z);
                 if ((TrueRot.z - 1) <= (Angles.eulerAngles.z - 18) &&  (Angles.eulerAngles.z - 18) <= (TrueRot.z + 1))
-                {
                     _trueRotStatus=true;
-                }
-                else{
+                else
                     _trueRotStatus=false;
-                }
             }
         }
         if(gameObject.tag=="WallPuzzleButton"){
