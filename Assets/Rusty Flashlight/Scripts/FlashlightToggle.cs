@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 
 public class FlashlightToggle : MonoBehaviour
 {
     public GameObject lightGO;
-    private bool isOn = false;
+    private bool isOn = false, Counter;
     public Camera Cam;
 
     void Start()
@@ -24,6 +25,10 @@ public class FlashlightToggle : MonoBehaviour
     public void OnMouseDown()
     {
         SoundManager.Instance.Audio(7);
+        if(Counter==false){
+            StartCoroutine(WaitSpeaker());
+            Counter=true;
+        }
         if (isOn == false)
         {
             lightGO.SetActive(true);
@@ -34,5 +39,11 @@ public class FlashlightToggle : MonoBehaviour
             isOn = false;
             lightGO.SetActive(false);
         }
+    }
+
+    private IEnumerator WaitSpeaker()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SoundManager.Instance.Audio(18);
     }
 }
