@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 
 public class WallPuzzle : MonoBehaviour
@@ -8,7 +9,7 @@ public class WallPuzzle : MonoBehaviour
     public Vector3 TrueRot;
     public bool _trueRotStatus=false;
     public GameObject[] ButtonList;
-    public int sayac=0;
+    public int sayac=0, Counter;
     public bool status=false;
     private GameObject door;
     private bool isFinish = true;
@@ -18,6 +19,7 @@ public class WallPuzzle : MonoBehaviour
     public void Awake()
     {
         door = DoorController.Instance.Door(1);
+        Counter=7;
     }
     IEnumerator WaitSecond(bool TrueOrFalse, float duration)
     {
@@ -58,6 +60,13 @@ public class WallPuzzle : MonoBehaviour
             }
             else{
                 SoundManager.Instance.Audio(2);
+                Debug.Log(Counter);
+                Counter++;
+                Debug.Log(Counter);
+                if(Counter==8){
+                    SoundManager.Instance.Audio(19);
+                    Counter=0;
+                }
             }
         }
     }
