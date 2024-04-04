@@ -24,7 +24,7 @@ public class Lever_puzzle : MonoBehaviour
     {
         Debug.Log(gameObject.tag);
         if(gameObject.tag=="Lever"){
-            SoundManager.Instance.Audio(6);
+            SoundManager.Instance.Audio(6,PlayerPrefs.GetFloat("audioVolume"));
             if (lever==70)
             {
                 transform.rotation = Quaternion.Euler(220, 0, 0);

@@ -124,7 +124,7 @@ namespace deneme
 
         public void ifclickbackpack()
         {
-            SoundManager.Instance.Audio(8);
+            SoundManager.Instance.Audio(8,PlayerPrefs.GetFloat("audioVolume"));
             float targetPosition = EnvOpenorClose ? envstartposy : (envstartposy + 100);
             EnvPanelTransform.DOAnchorPosY(targetPosition, 1);
             EnvOpenorClose = !EnvOpenorClose;
@@ -132,7 +132,7 @@ namespace deneme
 
         public void ifClickMenuButton()
         {
-            SoundManager.Instance.Audio(14);
+            SoundManager.Instance.Audio(14,PlayerPrefs.GetFloat("audioVolume"));
             Time.timeScale = 0;
             MenuPanel.SetActive(true);
             MenuPanelforBackground.SetActive(true);
@@ -144,7 +144,7 @@ namespace deneme
 
         public void ifClickComeBackButton()
         {
-            SoundManager.Instance.Audio(14);
+            SoundManager.Instance.Audio(14,PlayerPrefs.GetFloat("audioVolume"));
             Time.timeScale = 1;
             MenuPanel.SetActive(false);
             MenuPanelforBackground.SetActive(false);
@@ -156,7 +156,7 @@ namespace deneme
 
         public void ifClickSettingsButton()
         {
-            SoundManager.Instance.Audio(14);
+            SoundManager.Instance.Audio(14,PlayerPrefs.GetFloat("audioVolume"));
             MenuPanel.SetActive(false);
             SettingsPanel.SetActive(true);
             MusicSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("musicVolume");
@@ -165,7 +165,7 @@ namespace deneme
 
         public void ifClickComeBackButtonForSettings()
         {
-            SoundManager.Instance.Audio(14);
+            SoundManager.Instance.Audio(14,PlayerPrefs.GetFloat("audioVolume"));
             MenuPanel.SetActive(true);
             SettingsPanel.SetActive(false);
         }
@@ -184,7 +184,7 @@ namespace deneme
 
         public void ifClickMainMenuButton()
         {
-            SoundManager.Instance.Audio(14);
+            SoundManager.Instance.Audio(14,PlayerPrefs.GetFloat("audioVolume"));
             Time.timeScale = 1;
             mainmenuscript.FirstEntry = true;
             SceneManager.LoadScene(2);

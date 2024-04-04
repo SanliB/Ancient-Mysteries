@@ -8,7 +8,7 @@ public class SpeakerTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag=="Character"){
-            SoundManager.Instance.Audio(SpeakerNumber);
+            SoundManager.Instance.Audio(SpeakerNumber,0.8f);
             gameObject.GetComponent<BoxCollider>().enabled=false;
         }
     }

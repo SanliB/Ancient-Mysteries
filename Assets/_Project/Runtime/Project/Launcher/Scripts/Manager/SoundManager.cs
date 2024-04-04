@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class SoundManager : MonoSingleton<SoundManager>
 {
@@ -11,10 +12,12 @@ public class SoundManager : MonoSingleton<SoundManager>
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        
     }
 
-    public void Audio(int a)
+    public void Audio(int a,float Volume)
     {
+        audioSource.volume = Volume;
         audioSource.PlayOneShot(_audio[a]);
     }
 }

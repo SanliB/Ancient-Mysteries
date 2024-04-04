@@ -22,7 +22,7 @@ public class DeathPanel : MonoSingleton<DeathPanel>
 
     public void returnGame()
     {
-        SoundManager.Instance.Audio(4);
+        SoundManager.Instance.Audio(4,PlayerPrefs.GetFloat("audioVolume"));
         b = true;
         gameObject.SetActive(true);
         StartCoroutine(TextFont(YouDiedText, 77.5f));
@@ -34,38 +34,38 @@ public class DeathPanel : MonoSingleton<DeathPanel>
 
     IEnumerator ScaleUIOverTime(RectTransform uiElement, Vector3 targetScale, float duration)
     {
-        Vector3 initialScale = uiElement.localScale; // Baþlangýç ölçeði
+        Vector3 initialScale = uiElement.localScale; // Baï¿½langï¿½ï¿½ ï¿½lï¿½eï¿½i
         float time = 0;
 
         while (time < duration)
         {
-            // Time.timeScale 0 iken bile zamaný artýr
+            // Time.timeScale 0 iken bile zamanï¿½ artï¿½r
             time += Time.unscaledDeltaTime;
 
-            // UI elementini yavaþça hedef ölçeðe doðru ölçeklendir
+            // UI elementini yavaï¿½ï¿½a hedef ï¿½lï¿½eï¿½e doï¿½ru ï¿½lï¿½eklendir
             uiElement.localScale = Vector3.Lerp(initialScale, targetScale, time / duration);
 
             yield return null; // Bir sonraki frame'e kadar bekle
         }
 
-        // Son ölçeði hedef ölçeðe ayarla
+        // Son ï¿½lï¿½eï¿½i hedef ï¿½lï¿½eï¿½e ayarla
         uiElement.localScale = targetScale;
     }
 
     IEnumerator TextFont(TextMeshProUGUI text, float FinishFontSize)
     {
         float startRealTime = Time.realtimeSinceStartup;
-        float delay = 0.02f; // Bekleme süresi 0.02 saniye olarak ayarlandý
+        float delay = 0.02f; // Bekleme sï¿½resi 0.02 saniye olarak ayarlandï¿½
         while (text.fontSize > FinishFontSize)
         {
             text.fontSize--;
 
-            // Gerçek zamanlý bekleme süresi hesaplama
+            // Gerï¿½ek zamanlï¿½ bekleme sï¿½resi hesaplama
             while (Time.realtimeSinceStartup < startRealTime + delay)
             {
                 yield return null; // Bir sonraki frame'e kadar bekle
             }
-            startRealTime += delay; // Sonraki iterasyon için baþlangýç zamanýný güncelle
+            startRealTime += delay; // Sonraki iterasyon iï¿½in baï¿½langï¿½ï¿½ zamanï¿½nï¿½ gï¿½ncelle
         }
     }
 

@@ -47,7 +47,7 @@ public class enemyAI : MonoBehaviour
     {
         if (!_animator.GetCurrentAnimatorStateInfo(0).IsName("Spider _ Attack"))
         {
-            SoundManager.Instance.Audio(3);
+            SoundManager.Instance.Audio(3,PlayerPrefs.GetFloat("audioVolume"));
             _animator.SetTrigger("Attack");
             _agent.SetDestination(transform.position);
         }

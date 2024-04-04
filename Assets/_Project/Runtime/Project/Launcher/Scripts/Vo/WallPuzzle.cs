@@ -35,7 +35,7 @@ public class WallPuzzle : MonoBehaviour
             {
                 isFinish = false;
                 Angles = gameObject.GetComponent<Transform>();
-                SoundManager.Instance.Audio(0);
+                SoundManager.Instance.Audio(0,PlayerPrefs.GetFloat("audioVolume"));
                 Vector3 newEulerAngles = new Vector3(Angles.eulerAngles.x, Angles.eulerAngles.y, Angles.eulerAngles.z + 72);
                 Angles.DORotate(newEulerAngles, 0.3f);
                 StartCoroutine(WaitSecond(true, 0.3f));
@@ -53,18 +53,18 @@ public class WallPuzzle : MonoBehaviour
                 }
             }
             if(sayac==ButtonList.Length && status==false){
-                SoundManager.Instance.Audio(10);
+                SoundManager.Instance.Audio(10,PlayerPrefs.GetFloat("audioVolume"));
                 status=true;
                 door.GetComponent<Animator>().SetBool("DoorStatus", true);
                 Debug.Log("kapı açıldı");
             }
             else if(!door.GetComponent<Animator>().GetBool("DoorStatus")){
-                SoundManager.Instance.Audio(2);
+                SoundManager.Instance.Audio(2,PlayerPrefs.GetFloat("audioVolume"));
                 Debug.Log(Counter);
                 Counter++;
                 Debug.Log(Counter);
                 if(Counter==8){
-                    SoundManager.Instance.Audio(19);
+                    SoundManager.Instance.Audio(19,0.8f);
                     Counter=0;
                 }
             }

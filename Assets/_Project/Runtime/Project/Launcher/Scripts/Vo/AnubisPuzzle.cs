@@ -32,7 +32,7 @@ public class AnubisPuzzle : MonoBehaviour
             if (isfinish)
             {
                 isfinish = false;
-                SoundManager.Instance.Audio(0);
+                SoundManager.Instance.Audio(0,PlayerPrefs.GetFloat("audioVolume")*0.5f);
 
                 //transform.Rotate(0,45,0);
                 Vector3 newEulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 45, transform.eulerAngles.z);
@@ -61,7 +61,7 @@ public class AnubisPuzzle : MonoBehaviour
             if (Counter==CatList.Length && status==false)
             {
                 status=true;
-                SoundManager.Instance.Audio(1);
+                SoundManager.Instance.Audio(1,PlayerPrefs.GetFloat("audioVolume"));
                 _door.transform.position=new Vector3(_door.transform.position.x,a,_door.transform.position.z);
                 Anubislight.enabled = true;
                 Debug.Log("kapı açıldı");

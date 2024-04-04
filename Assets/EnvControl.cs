@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Experimental;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +10,7 @@ namespace EnvController
     public class EnvController : MonoBehaviour
     {
         public static EnvController Instance { get; private set; }
-
+        public int Counter;
         public GameObject[] Env;
         public GameObject[] EnvSelectedPictures;
         public GameObject[] EnvItemPictures;
@@ -28,7 +29,7 @@ namespace EnvController
 
         void Start()
         {
-
+            Counter = 3;
         }
 
         // Update is called once per frame
@@ -74,8 +75,17 @@ namespace EnvController
             EnvSelectedPictures[index].SetActive(true);
             if (EnvItemPictures[index].GetComponent<Image>().sprite == Paper)
             {
-                SoundManager.Instance.Audio(5);
+                SoundManager.Instance.Audio(5,PlayerPrefs.GetFloat("audioVolume"));
                 PaperPanel.SetActive(true);
+                
+                if (Counter == 3)
+                {
+                    
+                    SoundManager.Instance.Audio(25,0.1f);
+                    Counter = 0;
+                }
+                Counter++;
+                
             }
         }
     }

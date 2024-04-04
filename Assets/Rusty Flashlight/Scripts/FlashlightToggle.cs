@@ -24,7 +24,7 @@ public class FlashlightToggle : MonoBehaviour
 
     public void OnMouseDown()
     {
-        SoundManager.Instance.Audio(7);
+        SoundManager.Instance.Audio(7,PlayerPrefs.GetFloat("audioVolume"));
         if(Counter==false){
             StartCoroutine(WaitSpeaker());
             Counter=true;
@@ -44,6 +44,6 @@ public class FlashlightToggle : MonoBehaviour
     private IEnumerator WaitSpeaker()
     {
         yield return new WaitForSeconds(0.5f);
-        SoundManager.Instance.Audio(18);
+        SoundManager.Instance.Audio(18,0.8f);
     }
 }

@@ -16,12 +16,13 @@ public class Key : MonoSingleton<Key>
     {
         if (gameObject.tag == "Key")
         {
-            SoundManager.Instance.Audio(11);
+            SoundManager.Instance.Audio(11,PlayerPrefs.GetFloat("audioVolume"));
             canvasManagerforGameEpisodes.Instance.AddItemForEnv(keyimage);
             KeyAll.SetActive(false);
             gameObject.GetComponent<BoxCollider>().enabled = false;
             //KeyImage.enabled = true;
             //gameObject.SetActive(false);
+            SoundManager.Instance.Audio(23,0.8f);
             status = true;
         }
 
