@@ -21,11 +21,10 @@ public class CharacterController2 : MonoSingleton<CharacterController2>
     public AudioSource WalkSound;
     private Vector3 previousMove;
     private bool PlaySound;
-    private float WalkSoundVolume;
 
     void Start()
     {
-        WalkSoundVolume = WalkSound.volume;
+        WalkSound.volume = PlayerPrefs.GetFloat("audioVolume");
         PlaySound = false;
         _cc = GetComponent<CharacterController>();
     }
@@ -40,7 +39,8 @@ public class CharacterController2 : MonoSingleton<CharacterController2>
         MoveCharacter();
     }
 
-    private void GravityCharacter(){
+    private void GravityCharacter()
+    {
         if(_cc.isGrounded && velocity<=0.1f)
         {
             velocity=-1f;
@@ -66,14 +66,13 @@ public class CharacterController2 : MonoSingleton<CharacterController2>
             yield return null;
         }
         WalkSound.Stop();
+        WalkSound.volume = PlayerPrefs.GetFloat("audioVolume");
     }
 
     private void MoveCharacter(){
         if (_horizontal != 0 && _vertical != 0 && PlaySound == false)
         {
             PlaySound = true;
-            WalkSound.volume = WalkSoundVolume;
-            // WalkSound.pitch = Time.deltaTime*speed;
             StartCoroutine(WalkSoundPlayer());
         }
         if (_horizontal == 0 && _vertical == 0 && PlaySound == true)
