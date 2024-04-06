@@ -16,6 +16,10 @@ public class DeathPanel : MonoSingleton<DeathPanel>
     public Volume v;
     private Vignette vg;
     private Image TryAgainButtonImage;
+    public GameObject DieVolume;
+    public GameObject OpenVolume;
+    public GameObject FinalVolume;
+    
 
     private void Awake()
     {
@@ -24,6 +28,10 @@ public class DeathPanel : MonoSingleton<DeathPanel>
 
     public void returnGame()
     {
+        OpenVolume.SetActive(false);
+        FinalVolume.SetActive(false);
+        DieVolume.SetActive(true);
+
         SoundManager.Instance.Audio(4,PlayerPrefs.GetFloat("audioVolume"));
         b = true;
         gameObject.SetActive(true);

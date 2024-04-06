@@ -9,9 +9,16 @@ public class FinalPanel : MonoBehaviour
     public Volume FinalVolume;
     private Vignette _vg;
     public bool FinalStatus;
+    public GameObject DieVolume;
+    public GameObject FinalVolumee;
+    public GameObject OpenVolume;
 
     public void FinalScreen()
     {   
+        DieVolume.SetActive(false);
+        OpenVolume.SetActive(false);
+        FinalVolumee.SetActive(true);
+        
         FinalVolume.profile.TryGet(out _vg);
         FinalStatus=true;
     }
@@ -20,7 +27,7 @@ public class FinalPanel : MonoBehaviour
     {
         if (FinalStatus && _vg.intensity.value <= 1f)
         {
-            _vg.intensity.value += 0.01f*Time.fixedTime;
+            _vg.intensity.value += 0.00008f*Time.fixedTime;
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 
 namespace MainMenu
@@ -13,12 +14,31 @@ namespace MainMenu
         public static bool FirstEntry = true;
         public AudioSource audio;
         private static AudioSource FirstAudio;
+        public GameObject VideoImage;
+        public VideoPlayer videoPlayer;
+
+        public void VideoPlayer()
+        {
+            VideoImage.SetActive(true);
+            // Get the VideoPlayer component
+
+            // Subscribe to the loopPointReached event
+            videoPlayer.loopPointReached += EndReached;
+        }
+        
+        void EndReached(VideoPlayer vp)
+        {
+            Debug.Log("asdasd");
+            // Video playback reached the end
+            SceneManager.LoadScene(0);
+            // You can put your code here to do something when the video ends
+        }
 
         public void ifclickplaybutton()
         {
-            // DontDestroyOnLoad(audio);
+            VideoPlayer();
+            
             FirstAudio.Play();
-            SceneManager.LoadScene(0);
         }
 
         public void ifclicksettingsbutton()
