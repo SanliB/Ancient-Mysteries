@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
@@ -12,7 +13,8 @@ public class DeathPanel : MonoSingleton<DeathPanel>
     public TextMeshProUGUI YouDiedText;
     public Button TryAgainButton;
     public TextMeshProUGUI TryAgainButtonText;
-    private Vignette a;
+    public Volume v;
+    private Vignette vg;
     private Image TryAgainButtonImage;
 
     private void Awake()
@@ -27,8 +29,9 @@ public class DeathPanel : MonoSingleton<DeathPanel>
         gameObject.SetActive(true);
         StartCoroutine(TextFont(YouDiedText, 77.5f));
         StartCoroutine(ScaleUIOverTime(TryAgainButtonImage.GetComponent<RectTransform>(), new Vector3(1f, 1f, 1f), 0.5f));
-        a = vignette.Instance.vg;
-        a.intensity.value = 0;
+        //a = vignette.Instance.vg;
+        v.profile.TryGet(out vg);
+        vg.intensity.value = 0;
         Time.timeScale = 0;
     }
 
@@ -71,7 +74,7 @@ public class DeathPanel : MonoSingleton<DeathPanel>
 
     public void DieScene()
     {
-        a.intensity.value = 0;
+        vg.intensity.value = 0;
         gameObject.SetActive(false);
         Time.timeScale = 1;
         YouDiedText.fontSize = 100;
@@ -85,9 +88,9 @@ public class DeathPanel : MonoSingleton<DeathPanel>
 
     void Update()
     {
-        if (b && a.intensity.value <= 0.7f)
+        if (b && vg.intensity.value <= 0.7f)
         {
-            a.intensity.value += 0.0003f*Time.fixedTime;
+            vg.intensity.value += 0.0003f*Time.fixedTime;
         }
     }
 }
