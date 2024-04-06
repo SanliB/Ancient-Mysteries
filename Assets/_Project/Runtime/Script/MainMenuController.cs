@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
-
+using DG.Tweening;
 
 namespace MainMenu
 {
@@ -16,31 +17,38 @@ namespace MainMenu
         private static AudioSource FirstAudio;
         public GameObject VideoImage;
         public VideoPlayer videoPlayer;
-
+        public CanvasGroup MenuScene;
+        public bool StartVideo;
+        
+        
+        public void Awake()
+        {
+            MenuScene.alpha=1;
+        }
+        
         public void VideoPlayer()
         {
+            videoPlayer.Play();
             VideoImage.SetActive(true);
-            // Get the VideoPlayer component
-
-            // Subscribe to the loopPointReached event
             videoPlayer.loopPointReached += EndReached;
         }
         
         void EndReached(VideoPlayer vp)
         {
-            Debug.Log("asdasd");
-            // Video playback reached the end
             SceneManager.LoadScene(0);
-            // You can put your code here to do something when the video ends
         }
 
         public void ifclickplaybutton()
         {
-            VideoPlayer();
-            
+            StartVideo = true;
             FirstAudio.Play();
-        }
+            if (StartVideo)
+            {
+                DOTween.To(() => MenuScene.alpha, x => MenuScene.alpha = x, 0, 1).OnComplete(() => { VideoPlayer(); });
+            }
 
+        }
+        
         public void ifclicksettingsbutton()
         {
             // DontDestroyOnLoad(audio);
