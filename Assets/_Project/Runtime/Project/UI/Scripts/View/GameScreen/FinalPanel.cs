@@ -38,13 +38,13 @@ public class FinalPanel : MonoBehaviour
         {
             _vg.intensity.value += 0.00015f*Time.fixedTime;
         }
-        /*if(_vg.intensity.value==1){
+        if(_vg.intensity.value==1){
             EndScreen.active = true;
             DOTween.To(()=>ToBeContinued.alpha,x=>ToBeContinued.alpha=x,1,5);
-        }*/
+        }
     }
 
-    /*public void EndReturnMenu()
+    public void EndReturnMenu()
     {
         ToBeContinued.alpha = 0;
         if(ToBeContinued.alpha == 0){
@@ -52,5 +52,5 @@ public class FinalPanel : MonoBehaviour
             EndScreen.active = false;
         }
         SceneManager.LoadScene(2);
-    }*/
+    }
 }
