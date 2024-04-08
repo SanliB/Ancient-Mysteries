@@ -19,7 +19,8 @@ namespace MainMenu
         public VideoPlayer videoPlayer;
         public CanvasGroup MenuScene;
         public bool StartVideo;
-        
+
+        public RenderTexture StartVideoRender;
         
         public void Awake()
         {
@@ -40,18 +41,19 @@ namespace MainMenu
 
         public void ifclickplaybutton()
         {
+            RenderTexture.active = StartVideoRender;
+            GL.Clear(true, true, Color.clear);
+            RenderTexture.active = null;
             StartVideo = true;
             FirstAudio.Play();
             if (StartVideo)
             {
                 DOTween.To(() => MenuScene.alpha, x => MenuScene.alpha = x, 0, 1).OnComplete(() => { VideoPlayer(); });
             }
-
         }
         
         public void ifclicksettingsbutton()
         {
-            // DontDestroyOnLoad(audio);
             FirstAudio.Play();
             SceneManager.LoadScene(1);
         }
@@ -81,12 +83,6 @@ namespace MainMenu
                     PlayerPrefs.SetFloat("audioVolume", 100);
                 FirstEntry = false;
             }
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
         }
     }
 }
