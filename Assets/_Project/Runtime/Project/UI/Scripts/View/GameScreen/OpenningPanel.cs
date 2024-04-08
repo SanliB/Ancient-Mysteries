@@ -19,7 +19,7 @@ public class OpenningPanel : MonoBehaviour
     {
         if (FinalStatus && _vg.intensity.value <= 1f)
         {
-            _vg.intensity.value -= 0.00004f*Time.fixedTime;
+            _vg.intensity.value -= 0.0001f*Time.fixedTime;
         }
     }
 }

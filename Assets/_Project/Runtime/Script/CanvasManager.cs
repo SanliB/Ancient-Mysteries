@@ -33,7 +33,6 @@ namespace deneme
         public GameObject MenuPanelforBackground;
         //public Sprite FlashLigtIcon;
         public Sprite EnvBackGroundSprite;
-        public TextMeshProUGUI YouDiedText;
         private bool[] ButtonisActive;
         private bool EnvOpenorClose;
         private float envstartposy;
