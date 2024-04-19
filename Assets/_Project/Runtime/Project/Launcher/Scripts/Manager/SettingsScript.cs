@@ -15,13 +15,7 @@ public class Settings : MonoBehaviour
     public void GetAudioVolume()
     {
         Audio.volume = PlayerPrefs.GetFloat("audioVolume");
-        //Audio.Play();
 
-    }
-
-    private void Start()
-    {
-       // PlayerPrefs.SetFloat("audioVolume", Audio.volume);
     }
 
 }

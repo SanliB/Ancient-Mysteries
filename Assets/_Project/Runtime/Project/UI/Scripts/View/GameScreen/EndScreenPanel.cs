@@ -24,6 +24,6 @@ public class EndScreenPanel : MonoBehaviour
     public void EndReturnMenu(){
         ToBeContinued.alpha = 0;
         
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(0);
     }
 }

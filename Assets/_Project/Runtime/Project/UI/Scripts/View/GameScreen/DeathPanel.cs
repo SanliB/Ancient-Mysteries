@@ -37,7 +37,7 @@ public class DeathPanel : MonoSingleton<DeathPanel>
         gameObject.SetActive(true);
         StartCoroutine(TextFont(YouDiedText, 77.5f));
         StartCoroutine(ScaleUIOverTime(TryAgainButtonImage.GetComponent<RectTransform>(), new Vector3(1f, 1f, 1f), 0.5f));
-        //a = vignette.Instance.vg;
+        
         v.profile.TryGet(out vg);
         vg.intensity.value = 0;
         Time.timeScale = 0;
@@ -45,38 +45,38 @@ public class DeathPanel : MonoSingleton<DeathPanel>
 
     IEnumerator ScaleUIOverTime(RectTransform uiElement, Vector3 targetScale, float duration)
     {
-        Vector3 initialScale = uiElement.localScale; // Ba�lang�� �l�e�i
+        Vector3 initialScale = uiElement.localScale; 
         float time = 0;
 
         while (time < duration)
         {
-            // Time.timeScale 0 iken bile zaman� art�r
+            
             time += Time.unscaledDeltaTime;
 
-            // UI elementini yava��a hedef �l�e�e do�ru �l�eklendir
+            
             uiElement.localScale = Vector3.Lerp(initialScale, targetScale, time / duration);
 
-            yield return null; // Bir sonraki frame'e kadar bekle
+            yield return null; 
         }
 
-        // Son �l�e�i hedef �l�e�e ayarla
+        
         uiElement.localScale = targetScale;
     }
 
     IEnumerator TextFont(TextMeshProUGUI text, float FinishFontSize)
     {
         float startRealTime = Time.realtimeSinceStartup;
-        float delay = 0.02f; // Bekleme s�resi 0.02 saniye olarak ayarland�
+        float delay = 0.02f; 
         while (text.fontSize > FinishFontSize)
         {
             text.fontSize--;
 
-            // Ger�ek zamanl� bekleme s�resi hesaplama
+            
             while (Time.realtimeSinceStartup < startRealTime + delay)
             {
-                yield return null; // Bir sonraki frame'e kadar bekle
+                yield return null; 
             }
-            startRealTime += delay; // Sonraki iterasyon i�in ba�lang�� zaman�n� g�ncelle
+            startRealTime += delay; 
         }
     }
 
@@ -87,7 +87,7 @@ public class DeathPanel : MonoSingleton<DeathPanel>
         Time.timeScale = 1;
         YouDiedText.fontSize = 100;
         TryAgainButtonImage.GetComponent<RectTransform>().localScale = new Vector3(1.5f, 1.5f, 1f);
-        //TryAgainButtonText.fontSize = 50;
+        
         CharacterController _cc = CharacterController2.Instance._cc;
         _cc.enabled = false;
         _cc.transform.position=new Vector3(-19,-8.5f,18);

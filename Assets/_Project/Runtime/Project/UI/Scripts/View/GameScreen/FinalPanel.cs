@@ -21,7 +21,9 @@ public class FinalPanel : MonoBehaviour
         ToBeContinued.alpha = 0;
         EndScreen.active=false;
         FinalVolume.profile.TryGet(out _vg);
+        
     }
+    
 
     public void FinalScreen()
     {   
@@ -36,21 +38,24 @@ public class FinalPanel : MonoBehaviour
     {
         if (FinalStatus && _vg.intensity.value <= 1f)
         {
-            _vg.intensity.value += 0.00015f*Time.fixedTime;
+            _vg.intensity.value += 0.00003f*Time.fixedTime;
         }
         if(_vg.intensity.value==1){
             EndScreen.active = true;
+            
             DOTween.To(()=>ToBeContinued.alpha,x=>ToBeContinued.alpha=x,1,5);
         }
     }
 
     public void EndReturnMenu()
     {
+        
         ToBeContinued.alpha = 0;
         if(ToBeContinued.alpha == 0){
             _vg.intensity.value = 0;
             EndScreen.active = false;
         }
-        SceneManager.LoadScene(2);
+        DOTween.Clear(true);
+        SceneManager.LoadScene(0);
     }
 }

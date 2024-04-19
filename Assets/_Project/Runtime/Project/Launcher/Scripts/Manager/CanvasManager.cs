@@ -186,7 +186,7 @@ namespace deneme
             SoundManager.Instance.Audio(14,PlayerPrefs.GetFloat("audioVolume"));
             Time.timeScale = 1;
             mainmenuscript.FirstEntry = true;
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(0);
         }
     }
 }

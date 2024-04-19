@@ -7,6 +7,8 @@ using System.IO;
 
 public class ClickSound : MonoBehaviour
 {
+    
+    
     // Start is called before the first frame update
     public GameObject olusanikincises;
     private static GameObject ilkses;
@@ -43,3 +45,5 @@ public class ClickSound : MonoBehaviour
         Destroy(ilkses);
     }
 }
+
+

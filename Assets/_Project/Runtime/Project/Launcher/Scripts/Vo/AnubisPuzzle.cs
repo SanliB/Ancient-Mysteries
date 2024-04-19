@@ -64,7 +64,6 @@ public class AnubisPuzzle : MonoBehaviour
                 SoundManager.Instance.Audio(1,PlayerPrefs.GetFloat("audioVolume"));
                 _door.transform.position=new Vector3(_door.transform.position.x,a,_door.transform.position.z);
                 Anubislight.enabled = true;
-                Debug.Log("kapı açıldı");
             }
         }
     }

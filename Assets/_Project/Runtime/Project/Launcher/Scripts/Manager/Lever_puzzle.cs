@@ -5,13 +5,11 @@ using UnityEngine;
 
 public class Lever_puzzle : MonoBehaviour
 {
-
-    
     private Vector3 _leverStatus;
     public Vector3 TrueRot;
     public bool _trueRotStatus=false;
     public GameObject[] LeverList;
-    public int sayac=0;
+    public int counter=0;
     public bool status=false;
     GameObject glass;
     float a;
@@ -45,19 +43,16 @@ public class Lever_puzzle : MonoBehaviour
             }
         }
         if(gameObject.tag=="Glass"){
-            sayac=0;
+            counter=0;
             for(int i=0; i<LeverList.Length;i++){
                 if(LeverList[i].GetComponent<Lever_puzzle>()._trueRotStatus){
-                    sayac++;
+                    counter++;
                 }
             }
-            if(sayac==LeverList.Length && status==false){
+            if(counter==LeverList.Length && status==false){
                 status=true;
                 
                 glass.transform.position=new Vector3(glass.transform.position.x,glass.transform.position.y+1,glass.transform.position.z);
-                
-                Debug.Log("cam açıldı");
-                
             }
         }
     }

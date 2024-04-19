@@ -18,7 +18,6 @@ public class flashlight_button : MonoBehaviour
     {
         SoundManager.Instance.Audio(7,PlayerPrefs.GetFloat("audioVolume"));
         deneme.canvasManagerforGameEpisodes.Instance.AddItemForEnv(FlashlightImage);
-        Debug.Log("flash alindi");
         Flash_Button.SetActive(true);
         gameObject.SetActive(false);
         _door.transform.Rotate(0,90,0);

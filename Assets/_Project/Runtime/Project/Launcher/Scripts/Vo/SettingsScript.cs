@@ -41,6 +41,6 @@ public class settingsscript : MonoBehaviour
     public void OnClickComeBackButton()
     {
         ClickSound.PlayClickSound();
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(0);
     }
 }

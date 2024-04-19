@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
@@ -36,7 +35,7 @@ namespace MainMenu
         
         void EndReached(VideoPlayer vp)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(2);
         }
 
         public void ifclickplaybutton()
@@ -69,7 +68,7 @@ namespace MainMenu
                 FirstAudio = audio;
             else
                 Destroy(audio);
-            if (FirstEntry)
+            /*if (FirstEntry)
             {
                 if (PlayerPrefs.HasKey("musicVolume"))
                 {
@@ -82,7 +81,7 @@ namespace MainMenu
                 if (!PlayerPrefs.HasKey("audioVolume"))
                     PlayerPrefs.SetFloat("audioVolume", 100);
                 FirstEntry = false;
-            }
+            }*/
         }
     }
 }

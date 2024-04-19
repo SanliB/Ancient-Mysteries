@@ -9,7 +9,7 @@ public class WallPuzzle : MonoBehaviour
     public Vector3 TrueRot;
     public bool _trueRotStatus=false;
     public GameObject[] ButtonList;
-    public int sayac=0, Counter;
+    public int Counter1=0, Counter;
     public bool status=false;
     private GameObject door;
     private bool isFinish = true;
@@ -46,13 +46,13 @@ public class WallPuzzle : MonoBehaviour
             }
         }
         if(gameObject.tag=="WallPuzzleButton"){
-            sayac=0;
+            Counter1=0;
             for(int i=0; i<ButtonList.Length;i++){
                 if(ButtonList[i].GetComponent<WallPuzzle>()._trueRotStatus){
-                    sayac++;
+                    Counter1++;
                 }
             }
-            if(sayac==ButtonList.Length && status==false){
+            if(Counter1==ButtonList.Length && status==false){
                 SoundManager.Instance.Audio(10,PlayerPrefs.GetFloat("audioVolume"));
                 status=true;
                 door.GetComponent<Animator>().SetBool("DoorStatus", true);

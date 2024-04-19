@@ -16,11 +16,8 @@ public class Paper : MonoSingleton<Paper>
 
     private void OnMouseDown()
     {
-        Debug.Log("sdad");
         if(Chest.GetComponent<Chest>().a==true)
         {
-            Debug.Log("dsgfdsfdsf");
-            
             if (gameObject.tag == "Paper")
             {
                 SoundManager.Instance.Audio(5,PlayerPrefs.GetFloat("audioVolume"));
@@ -29,7 +26,6 @@ public class Paper : MonoSingleton<Paper>
                 gameObject.SetActive(false);
                 status = true;
                 SoundManager.Instance.Audio(24,0.8f);
-                //PaperImage.enabled = true;
             }
         }
     }
