@@ -24,24 +24,24 @@ public class TouchController : MonoBehaviour, IPointerDownHandler, IDragHandler,
         _currentPosY=eventData.position.y;
         //sağa dönüş
         if(_startPosX-_currentPosX < -5){
-            SliderHorizontal=Mathf.Clamp(SliderHorizontal += 0.1f, -1, 1);
+            SliderHorizontal=Mathf.Clamp(SliderHorizontal += 0.5f, -1, 1);
             _startPosX=_currentPosX;
         }
         //sola dönüş
         if(_startPosX-_currentPosX > 5){
-            SliderHorizontal=Mathf.Clamp(SliderHorizontal -= 0.1f, -1, 1);
+            SliderHorizontal=Mathf.Clamp(SliderHorizontal -= 0.5f, -1, 1);
             _startPosX=_currentPosX;
         }
         // Yukarı
         if (_startPosY - _currentPosY < -5)
         {
-            SliderVertical = Mathf.Clamp(SliderVertical += 0.1f, -1, 1);
+            SliderVertical = Mathf.Clamp(SliderVertical += 0.5f, -1, 1);
             _startPosY = _currentPosY;
         }
         // Aşağı 
         if (_startPosY - _currentPosY > 5)
         {
-            SliderVertical = Mathf.Clamp(SliderVertical -= 0.1f, -1, 1);
+            SliderVertical = Mathf.Clamp(SliderVertical -= 0.5f, -1, 1);
             _startPosY = _currentPosY;
         }
     }

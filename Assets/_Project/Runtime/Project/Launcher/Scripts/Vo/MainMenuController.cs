@@ -68,7 +68,7 @@ namespace MainMenu
                 FirstAudio = audio;
             else
                 Destroy(audio);
-            /*if (FirstEntry)
+            if (FirstEntry)
             {
                 if (PlayerPrefs.HasKey("musicVolume"))
                 {
@@ -81,7 +81,7 @@ namespace MainMenu
                 if (!PlayerPrefs.HasKey("audioVolume"))
                     PlayerPrefs.SetFloat("audioVolume", 100);
                 FirstEntry = false;
-            }*/
+            }
         }
     }
 }

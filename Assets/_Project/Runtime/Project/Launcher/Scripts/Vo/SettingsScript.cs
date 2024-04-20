@@ -30,12 +30,13 @@ public class settingsscript : MonoBehaviour
     public void GetMusicVolume()
     {
         PlayerPrefs.SetFloat("musicVolume", musicSlider.value);
-        audioSource.volume = musicSlider.value;
+        dontdestroyonmainaudiosource.changeVolume(musicSlider.value);
     }
 
     public void GetAudioVolume()
     {
         PlayerPrefs.SetFloat("audioVolume", audioSlider.value);
+        ClickSound.ChangeVolume(audioSlider.value);
     }
 
     public void OnClickComeBackButton()

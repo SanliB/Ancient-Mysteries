@@ -9,33 +9,33 @@ public class dontdestroyonmainaudiosource : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public GameObject olusanikincises;
-    private static GameObject ilkses;
+    public GameObject secondVolume;
+    private static GameObject firstVolume;
+    static AudioSource temp;
 
     private void Awake()
     {
-        if (ilkses == null)
+        if (firstVolume == null)
         {
-            ilkses = this.gameObject;
-            AudioSource audioSource = ilkses.GetComponent<AudioSource>();
-            string musicSettingsPath = Application.dataPath + "/musicSettings.json";
-            if (File.Exists(musicSettingsPath))
-            {
-                string json = File.ReadAllText(musicSettingsPath);
-                audioSource.volume = JsonUtility.FromJson<float>(json);
-            }
-            else
-                audioSource.volume = 1.0f;
+            firstVolume = this.gameObject;
+            AudioSource audioSource = firstVolume.GetComponent<AudioSource>();
+            temp = audioSource;
+            audioSource.volume = PlayerPrefs.GetFloat("musicVolume");
         }
-        if (this.gameObject != ilkses)
+        if (this.gameObject != firstVolume)
         {
             this.gameObject.SetActive(false);
         }
-        DontDestroyOnLoad(ilkses);
+        DontDestroyOnLoad(firstVolume);
     }
 
     public void OnClickStartOrQuit()
     {
-        Destroy(ilkses);
+        Destroy(firstVolume);
+        firstVolume = null;
+    }
+    public static void changeVolume(float volume)
+    {
+        temp.volume = volume;
     }
 }
