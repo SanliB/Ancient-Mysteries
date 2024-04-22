@@ -64,6 +64,7 @@ namespace MainMenu
 
         void Start()
         {
+            
             if (FirstAudio == null)
                 FirstAudio = audio;
             else
@@ -76,10 +77,11 @@ namespace MainMenu
                 }
                 else
                 {
-                    PlayerPrefs.SetFloat("musicVolume", FindObjectOfType<AudioSource>().volume);
+                    PlayerPrefs.SetFloat("musicVolume",1.0f);
+                    
                 }
                 if (!PlayerPrefs.HasKey("audioVolume"))
-                    PlayerPrefs.SetFloat("audioVolume", 100);
+                    PlayerPrefs.SetFloat("audioVolume", 1.0f);
                 FirstEntry = false;
             }
         }
