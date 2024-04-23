@@ -49,7 +49,6 @@ public class FinalPanel : MonoBehaviour
 
     public void EndReturnMenu()
     {
-        
         ToBeContinued.alpha = 0;
         if(ToBeContinued.alpha == 0){
             _vg.intensity.value = 0;

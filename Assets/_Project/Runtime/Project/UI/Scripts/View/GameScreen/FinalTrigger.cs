@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class FinalTrigger : MonoBehaviour
 {
+    public CharacterController2 CharacterControl;
     public FinalPanel FinalPanel;
+    public AudioSource Walksound;
 
     private void OnTriggerEnter(Collider other)
     {   
         if (other.tag == "Character")
         {
-            FinalPanel.GetComponent<FinalPanel>().FinalScreen();
+            CharacterControl.enabled = false;
+            Walksound.Stop();
+            FinalPanel.GetComponent<EndGameText>().TextStart();
+            
         }
     }
 }
