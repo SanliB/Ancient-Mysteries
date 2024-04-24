@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class FinalPanel : MonoBehaviour
 {
@@ -24,7 +25,6 @@ public class FinalPanel : MonoBehaviour
         
     }
     
-
     public void FinalScreen()
     {   
         DieVolume.SetActive(false);
@@ -46,15 +46,26 @@ public class FinalPanel : MonoBehaviour
             DOTween.To(()=>ToBeContinued.alpha,x=>ToBeContinued.alpha=x,1,5);
         }
     }
+    
+    private IEnumerator GoBackEndText()
+    {
+        Color temp=EndScreen.GetComponent<Image>().color;
+        while (temp.a!=1)
+        {
+            temp.a -= 0.1f;
+            EndScreen.GetComponent<Image>().color = temp;
+            yield return new WaitForSeconds(0.1f);
+        }
+        EndScreen.active = false;
+        DOTween.Clear(true);
+        SceneManager.LoadScene(0);
+        yield return null;
+    }
 
     public void EndReturnMenu()
     {
-        ToBeContinued.alpha = 0;
-        if(ToBeContinued.alpha == 0){
-            _vg.intensity.value = 0;
-            EndScreen.active = false;
-        }
-        DOTween.Clear(true);
-        SceneManager.LoadScene(0);
+            StartCoroutine(GoBackEndText());
+            DOTween.Clear(true);
+            SceneManager.LoadScene(0);
     }
 }

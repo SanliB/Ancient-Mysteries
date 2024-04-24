@@ -5,6 +5,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 using DG.Tweening;
+using TMPro;
+using UnityEngine.Rendering;
+using UnityEngine.UI;
+using Button = UnityEngine.UIElements.Button;
 
 namespace MainMenu
 {
@@ -18,6 +22,7 @@ namespace MainMenu
         public VideoPlayer videoPlayer;
         public CanvasGroup MenuScene;
         public bool StartVideo;
+        public GameObject SkipButton;
 
         public RenderTexture StartVideoRender;
         
@@ -25,11 +30,37 @@ namespace MainMenu
         {
             MenuScene.alpha=1;
         }
-        
+
+        public void SkipScene()
+        {
+            SceneManager.LoadScene(2);
+        }
+
+        private IEnumerator SkipButtonShow()
+        {
+            yield return new WaitForSeconds(2);
+            
+            Color ButtonColor = SkipButton.GetComponent<Image>().color;
+            Color TextColor = SkipButton.GetComponentInChildren<TextMeshProUGUI>().color;
+
+            while (ButtonColor.a != 1)
+            {
+                ButtonColor.a += 0.1f;
+                TextColor.a += 0.1f;
+                SkipButton.GetComponent<Image>().color = ButtonColor;
+                SkipButton.GetComponentInChildren<TextMeshProUGUI>().color = TextColor;
+                yield return new WaitForSeconds(0.1f);
+            }
+
+            yield return null;
+        }
+
         public void VideoPlayer()
         {
             videoPlayer.Play();
             VideoImage.SetActive(true);
+            SkipButton.SetActive(true);
+            StartCoroutine(SkipButtonShow());
             videoPlayer.loopPointReached += EndReached;
         }
         
@@ -78,7 +109,8 @@ namespace MainMenu
                 else
                 {
                     PlayerPrefs.SetFloat("musicVolume",1.0f);
-                    
+                    FindObjectOfType<AudioSource>().volume = PlayerPrefs.GetFloat("musicVolume");
+
                 }
                 if (!PlayerPrefs.HasKey("audioVolume"))
                     PlayerPrefs.SetFloat("audioVolume", 1.0f);

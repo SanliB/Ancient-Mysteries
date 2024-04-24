@@ -20,6 +20,10 @@ public class dontdestroyonmainaudiosource : MonoBehaviour
             firstVolume = this.gameObject;
             AudioSource audioSource = firstVolume.GetComponent<AudioSource>();
             temp = audioSource;
+            if (!PlayerPrefs.HasKey("musicVolume"))
+            {
+                PlayerPrefs.SetFloat("musicVolume",1.0f);
+            }
             audioSource.volume = PlayerPrefs.GetFloat("musicVolume");
         }
         if (this.gameObject != firstVolume)

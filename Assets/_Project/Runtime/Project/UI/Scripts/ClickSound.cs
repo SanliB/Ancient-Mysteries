@@ -21,8 +21,13 @@ public class ClickSound : MonoBehaviour
         if (firstVolume == null)
         {
             firstVolume = this.gameObject;
+            
             AudioSource audioSource = firstVolume.GetComponent<AudioSource>();
             temp = audioSource;
+            if (!PlayerPrefs.HasKey("audioVolume"))
+            {
+                PlayerPrefs.SetFloat("audioVolume",1.0f);
+            }
             audioSource.volume = PlayerPrefs.GetFloat("audioVolume");
             temp = audioSource;
         }
