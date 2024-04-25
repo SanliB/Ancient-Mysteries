@@ -69,7 +69,7 @@ public class EndGameText : MonoBehaviour
         SoundManager.Instance.Audio(28,1);
         DOTween.To(() => EndText.text, (yazi) => EndText.text = yazi, "And thus, the archaeologist's journey signified not just an end, but a new beginning. Ready to embark on further exploration journeys to trace the footsteps of ancient civilizations, the archaeologist was filled with new excitement and curiosity. Perhaps in the future, another adventure filled with mysterious relics and lost civilizations awaited him. But for now, emerging from the depths of the pyramids, he felt the excitement of taking a step towards future discoveries with a sparkle in his eyes and enthusiasm in his heart. And this, was just the beginning of opening the doors to a new adventure filled with ancient secrets..."
                                                                         , 17f).SetOptions(true, ScrambleMode.None);
-        yield return new WaitForSeconds(21);
+        yield return new WaitForSeconds(12);//21
         
         StartCoroutine(GoBackEndText());
         gameObject.GetComponent<FinalPanel>().FinalScreen();
