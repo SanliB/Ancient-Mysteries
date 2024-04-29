@@ -5,7 +5,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using MainMenu;
 using DG.Tweening;
 
 
@@ -62,16 +61,6 @@ namespace deneme
             BackPackTransform = BackPack.GetComponent<RectTransform>();
             FlashLightTransform = FlashLight.GetComponent<RectTransform>();
             envstartposy = EnvPanelTransform.anchoredPosition.y;
-            //AddItemForEnv(FlashLigtIcon);
-        }
-
-        void Start()
-        {
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
         }
 
         private int SearchFreeEnvIndex()
@@ -172,20 +161,17 @@ namespace deneme
         public void ifChangeMusicVolume()
         {
             PlayerPrefs.SetFloat("musicVolume", MusicSlider.GetComponent<Slider>().value);
-            //VolumeSlider.GetComponent<Slider>().value = 50;
         }
 
         public void ifChangeEffectVolume()
         {
             PlayerPrefs.SetFloat("audioVolume", EffectSlider.GetComponent<Slider>().value);
-            //VolumeSlider.GetComponent<Slider>().value = 50;
         }
 
         public void ifClickMainMenuButton()
         {
             SoundManager.Instance.Audio(14,PlayerPrefs.GetFloat("audioVolume"));
             Time.timeScale = 1;
-            mainmenuscript.FirstEntry = true;
             SceneManager.LoadScene(0);
         }
     }
