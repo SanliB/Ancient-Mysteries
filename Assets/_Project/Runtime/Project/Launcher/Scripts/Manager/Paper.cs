@@ -25,7 +25,10 @@ public class Paper : MonoSingleton<Paper>
                 PaperPanel.SetActive(true);
                 gameObject.SetActive(false);
                 status = true;
-                SoundManager.Instance.Audio(24,0.8f);
+                if (PlayerPrefs.GetString("Language") == "EN")
+                    SoundManager.Instance.Audio(24, 0.8f);
+                else
+                    SoundManager.Instance.Audio(37, 0.8f);
             }
         }
     }

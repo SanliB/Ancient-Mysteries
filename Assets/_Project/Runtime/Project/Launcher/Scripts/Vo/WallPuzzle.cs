@@ -29,7 +29,6 @@ public class WallPuzzle : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log(gameObject.tag);
         if(gameObject.tag=="WallKey"){
             if (isFinish)
             {
@@ -56,15 +55,18 @@ public class WallPuzzle : MonoBehaviour
                 SoundManager.Instance.Audio(10,PlayerPrefs.GetFloat("audioVolume"));
                 status=true;
                 door.GetComponent<Animator>().SetBool("DoorStatus", true);
-                Debug.Log("kapı açıldı");
             }
             else if(!door.GetComponent<Animator>().GetBool("DoorStatus")){
                 SoundManager.Instance.Audio(2,PlayerPrefs.GetFloat("audioVolume"));
                 Debug.Log(Counter);
                 Counter++;
                 Debug.Log(Counter);
-                if(Counter==8){
-                    SoundManager.Instance.Audio(19,0.8f);
+                if(Counter==8)
+                {
+                    if (PlayerPrefs.GetString("Language") == "EN")
+                        SoundManager.Instance.Audio(19, 0.8f);
+                    else
+                        SoundManager.Instance.Audio(34, 0.8f);
                     Counter=0;
                 }
             }

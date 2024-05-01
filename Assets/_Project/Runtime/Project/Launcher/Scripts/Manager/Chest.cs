@@ -9,7 +9,7 @@ using deneme;
 public class Chest : MonoBehaviour
 {
     
-    public int SpeakerNumber, Counter;
+    public int SpeakerNumberEN, SpeakerNumberTR, Counter;
     public bool ChestStatus, a = false;
     public Sprite KeySprite;
 
@@ -53,10 +53,13 @@ public class Chest : MonoBehaviour
     
     private IEnumerator Wait(float waitTime)
     {
-            yield return new WaitForSeconds(waitTime);
-            SoundManager.Instance.Audio(SpeakerNumber,0.8f);
+        yield return new WaitForSeconds(waitTime);
+        if (PlayerPrefs.GetString("Language") == "EN")
+            SoundManager.Instance.Audio(SpeakerNumberEN,0.8f);
+        else
+            SoundManager.Instance.Audio(SpeakerNumberTR, 0.8f);
     }
-    
+
 }
 
 

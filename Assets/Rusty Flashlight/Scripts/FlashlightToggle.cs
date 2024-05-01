@@ -44,6 +44,9 @@ public class FlashlightToggle : MonoBehaviour
     private IEnumerator WaitSpeaker()
     {
         yield return new WaitForSeconds(0.5f);
-        SoundManager.Instance.Audio(18,0.8f);
+        if (PlayerPrefs.GetString("Language") == "TR")
+            SoundManager.Instance.Audio(31, 0.8f);
+        else
+            SoundManager.Instance.Audio(18, 0.8f);
     }
 }

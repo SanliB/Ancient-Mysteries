@@ -32,6 +32,7 @@ namespace deneme
         public GameObject MenuPanelforBackground;
         //public Sprite FlashLigtIcon;
         public Sprite EnvBackGroundSprite;
+        public Slider SensitivitySlider;
         private bool[] ButtonisActive;
         private bool EnvOpenorClose;
         private float envstartposy;
@@ -61,6 +62,7 @@ namespace deneme
             BackPackTransform = BackPack.GetComponent<RectTransform>();
             FlashLightTransform = FlashLight.GetComponent<RectTransform>();
             envstartposy = EnvPanelTransform.anchoredPosition.y;
+            SensitivitySlider.value = PlayerPrefs.GetFloat("Sensitivity");
         }
 
         private int SearchFreeEnvIndex()
@@ -173,6 +175,11 @@ namespace deneme
             SoundManager.Instance.Audio(14,PlayerPrefs.GetFloat("audioVolume"));
             Time.timeScale = 1;
             SceneManager.LoadScene(0);
+        }
+
+        public void ifChangeSensitivity()
+        {
+            PlayerPrefs.SetFloat("Sensitivity", SensitivitySlider.value);
         }
     }
 }

@@ -12,7 +12,12 @@ public class LanguageControllerForLauncher : MonoBehaviour
     public TextMeshProUGUI ContinueButtonText;
     public TextMeshProUGUI SettingsButtonText;
     public TextMeshProUGUI ReturnMenuButtonTextForMenu;
+    public TextMeshProUGUI SensitivityText;
     public TextMeshProUGUI LanguageText;
+    public TextMeshProUGUI YouDiedText;
+    public TextMeshProUGUI TryAgainButtonText;
+    public TextMeshProUGUI ToBeContinuedText;
+    public TextMeshProUGUI ReturnMenuForEnd;
     public Image LangButton;
     public Sprite LangTR;
     public Sprite LangEN;
@@ -53,6 +58,11 @@ public class LanguageControllerForLauncher : MonoBehaviour
             ReturnMenuButtonTextForMenu.text = "Ana Menu";
             LanguageText.text = "Dil";
             LangButton.sprite = LangTR;
+            SensitivityText.text = "Hassasiyet";
+            YouDiedText.text = "Oldun";
+            TryAgainButtonText.text = "Tekrar Dene";
+            ToBeContinuedText.text = "Devam Edecek...";
+            ReturnMenuForEnd.text = "Ana Menu";
         }
         else
         {
@@ -64,6 +74,11 @@ public class LanguageControllerForLauncher : MonoBehaviour
             ReturnMenuButtonTextForMenu.text = "Return Menu";
             LanguageText.text = "Language";
             LangButton.sprite = LangEN;
+            SensitivityText.text = "Sensitivity";
+            YouDiedText.text = "You Died";
+            TryAgainButtonText.text = "Try Again";
+            ToBeContinuedText.text = "To Be Continued...";
+            ReturnMenuForEnd.text = "Return Menu";
         }
     }
 }

@@ -15,6 +15,7 @@ public class LanguageControllerForMainMenu : MonoBehaviour
     public TextMeshProUGUI MusicSliderText;
     public TextMeshProUGUI SoundEffectsSliderText;
     public TextMeshProUGUI LanguageButtonText;
+    public TextMeshProUGUI SensitivityText;
     public Image LanguageButtonImage;
     public Sprite LangTR;
     public Sprite LangEN;
@@ -26,7 +27,6 @@ public class LanguageControllerForMainMenu : MonoBehaviour
     {
         if (!PlayerPrefs.HasKey("Entry"))
             PlayerPrefs.SetInt("Entry", 1);
-        //StartCoroutine(GetCountry());
         CultureInfo ci = CultureInfo.CurrentCulture;
         if (ci.Name == "tr-TR" && PlayerPrefs.GetInt("Entry") == 1)
         {
@@ -64,6 +64,7 @@ public class LanguageControllerForMainMenu : MonoBehaviour
             LanguageButtonText.text = "Language";
             LanguageButtonImage.sprite = LangEN;
             BackButtonText.text = "Back";
+            SensitivityText.text = "Sensitivity";
         }
         else
         {
@@ -76,24 +77,7 @@ public class LanguageControllerForMainMenu : MonoBehaviour
             LanguageButtonText.text = "Dil";
             LanguageButtonImage.sprite = LangTR;
             BackButtonText.text = "Geri";
+            SensitivityText.text = "Hassasiyet";
         }
     }
-
-    //IEnumerator GetCountry()
-    //{
-    //    using (UnityWebRequest webRequest = UnityWebRequest.Get(apiUrl))
-    //    {
-    //        // API isteðini gönder
-    //        yield return webRequest.SendWebRequest();
-
-    //        if (webRequest.isNetworkError || webRequest.isHttpError)
-    //        {
-    //            PlayerPrefs.SetString("Language", "EN");
-    //        }
-    //        else
-    //        {
-    //            Debug.Log("Received: " + webRequest.downloadHandler.text);
-    //        }
-    //    }
-    //}
 }

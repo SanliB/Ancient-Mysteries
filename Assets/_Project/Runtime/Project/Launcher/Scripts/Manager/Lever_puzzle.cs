@@ -18,6 +18,7 @@ public class Lever_puzzle : MonoBehaviour
     void Awake(){
         glass= DoorController.Instance.Door(2);
     }
+
     private void OnMouseDown()
     {
         Debug.Log(gameObject.tag);

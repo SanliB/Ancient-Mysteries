@@ -13,6 +13,7 @@ public class MainMenuController : MonoBehaviour
     public GameObject SettingsPanel;
     public Slider MusicVolumeSlider;
     public Slider SoundEffectVolumeSlider;
+    public Slider SensitivitySlider;
     public VideoPlayer StartVideo;
     public GameObject VideoImage;
     public GameObject SkipSceneButtonForVideo;
@@ -25,6 +26,9 @@ public class MainMenuController : MonoBehaviour
             PlayerPrefs.SetFloat("musicVolume", 1);
         if (!PlayerPrefs.HasKey("audioVolume"))
             PlayerPrefs.SetFloat("audioVolume", 1);
+        if (!PlayerPrefs.HasKey("Sensitivity"))
+            PlayerPrefs.SetFloat("Sensitivity", 1);
+        SensitivitySlider.value = PlayerPrefs.GetFloat("Sensitivity");
         MusicVolumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
         SoundEffectVolumeSlider.value = PlayerPrefs.GetFloat("audioVolume");
     }
@@ -92,5 +96,10 @@ public class MainMenuController : MonoBehaviour
         VideoImage.SetActive(true);
         StartVideo.Play();
         StartVideo.loopPointReached += SkipGame;
+    }
+
+    public void ifChangeSensitivity()
+    {
+        PlayerPrefs.SetFloat("Sensitivity", SensitivitySlider.value);
     }
 }

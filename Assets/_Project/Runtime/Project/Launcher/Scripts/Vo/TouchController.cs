@@ -20,28 +20,29 @@ public class TouchController : MonoBehaviour, IPointerDownHandler, IDragHandler,
 
     public void OnDrag(PointerEventData eventData)
     {
+        float Sensitivity = PlayerPrefs.GetFloat("Sensitivity");
         _currentPosX=eventData.position.x;
         _currentPosY=eventData.position.y;
         //sağa dönüş
         if(_startPosX-_currentPosX < -20){
-            SliderHorizontal=Mathf.Clamp(SliderHorizontal += 0.5f, -1, 1);
+            SliderHorizontal=Mathf.Clamp(SliderHorizontal += 0.5f, -Sensitivity, Sensitivity);
             _startPosX=_currentPosX;
         }
         //sola dönüş
         if(_startPosX-_currentPosX > 20){
-            SliderHorizontal=Mathf.Clamp(SliderHorizontal -= 0.5f, -1, 1);
+            SliderHorizontal=Mathf.Clamp(SliderHorizontal -= 0.5f, -Sensitivity, Sensitivity);
             _startPosX=_currentPosX;
         }
         // Yukarı
         if (_startPosY - _currentPosY < -20)
         {
-            SliderVertical = Mathf.Clamp(SliderVertical += 0.5f, -1, 1);
+            SliderVertical = Mathf.Clamp(SliderVertical += 0.5f, -Sensitivity, Sensitivity);
             _startPosY = _currentPosY;
         }
         // Aşağı 
         if (_startPosY - _currentPosY > 20)
         {
-            SliderVertical = Mathf.Clamp(SliderVertical -= 0.5f, -1, 1);
+            SliderVertical = Mathf.Clamp(SliderVertical -= 0.5f, -Sensitivity, Sensitivity);
             _startPosY = _currentPosY;
         }
     }

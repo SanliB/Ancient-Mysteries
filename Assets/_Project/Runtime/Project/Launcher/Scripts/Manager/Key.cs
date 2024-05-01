@@ -22,7 +22,10 @@ public class Key : MonoSingleton<Key>
             gameObject.GetComponent<BoxCollider>().enabled = false;
             //KeyImage.enabled = true;
             //gameObject.SetActive(false);
-            SoundManager.Instance.Audio(23,0.8f);
+            if (PlayerPrefs.GetString("Language") == "EN")
+                SoundManager.Instance.Audio(23, 0.8f);
+            else
+                SoundManager.Instance.Audio(36, 0.8f);
             status = true;
         }
 
