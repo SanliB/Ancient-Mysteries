@@ -12,6 +12,7 @@ public class Chest : MonoBehaviour
     public int SpeakerNumberEN, SpeakerNumberTR, Counter;
     public bool ChestStatus, a = false;
     public Sprite KeySprite;
+    public BoxCollider PaperCollider;
 
     public void Start()
     {
@@ -29,7 +30,13 @@ public class Chest : MonoBehaviour
             gameObject.GetComponent<BoxCollider>().enabled = false;
         }
     }
-    
+
+    private IEnumerator WaitForBoxCollider()
+    {
+        yield return new WaitForSeconds(2f);
+        PaperCollider.enabled = true;
+        yield return null;
+    }
 
     private void OnMouseDown()
     {
@@ -37,6 +44,7 @@ public class Chest : MonoBehaviour
         {
             SoundManager.Instance.Audio(13,PlayerPrefs.GetFloat("audioVolume"));
             ChestStatus = true;
+            StartCoroutine(WaitForBoxCollider());
         }
         else
         {

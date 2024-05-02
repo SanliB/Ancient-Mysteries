@@ -44,32 +44,5 @@ public class WallPuzzle : MonoBehaviour
                     _trueRotStatus=false;
             }
         }
-        if(gameObject.tag=="WallPuzzleButton"){
-            Counter1=0;
-            for(int i=0; i<ButtonList.Length;i++){
-                if(ButtonList[i].GetComponent<WallPuzzle>()._trueRotStatus){
-                    Counter1++;
-                }
-            }
-            if(Counter1==ButtonList.Length && status==false){
-                SoundManager.Instance.Audio(10,PlayerPrefs.GetFloat("audioVolume"));
-                status=true;
-                door.GetComponent<Animator>().SetBool("DoorStatus", true);
-            }
-            else if(!door.GetComponent<Animator>().GetBool("DoorStatus")){
-                SoundManager.Instance.Audio(2,PlayerPrefs.GetFloat("audioVolume"));
-                Debug.Log(Counter);
-                Counter++;
-                Debug.Log(Counter);
-                if(Counter==8)
-                {
-                    if (PlayerPrefs.GetString("Language") == "EN")
-                        SoundManager.Instance.Audio(19, 0.8f);
-                    else
-                        SoundManager.Instance.Audio(34, 0.8f);
-                    Counter=0;
-                }
-            }
-        }
     }
 }

@@ -17,6 +17,8 @@ public class MainMenuController : MonoBehaviour
     public VideoPlayer StartVideo;
     public GameObject VideoImage;
     public GameObject SkipSceneButtonForVideo;
+    public VideoClip ClipTR;
+    public VideoClip ClipEN;
 
     // Start is called before the first frame update
 
@@ -89,6 +91,10 @@ public class MainMenuController : MonoBehaviour
 
     public void ifClickPlayButton()
     {
+        if (PlayerPrefs.GetString("Language") == "TR")
+            StartVideo.clip = ClipTR;
+        else
+            StartVideo.clip = ClipEN;
         SkipSceneButtonForVideo.SetActive(true);
         StartCoroutine(ShowSkipButton());
         MainMenuMusic.Stop();

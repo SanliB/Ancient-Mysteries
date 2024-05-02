@@ -20,6 +20,7 @@ public class LanguageControllerForMainMenu : MonoBehaviour
     public Sprite LangTR;
     public Sprite LangEN;
     public TextMeshProUGUI BackButtonText;
+    public AudioSource ClickSound;
 
     // Start is called before the first frame update
 
@@ -46,8 +47,10 @@ public class LanguageControllerForMainMenu : MonoBehaviour
 
     public void ChangeLanguage(int i)
     {
+
         if (i == 1)
         {
+            ClickSound.Play();
             if (PlayerPrefs.GetString("Language") == "EN")
                 PlayerPrefs.SetString("Language", "TR");
             else

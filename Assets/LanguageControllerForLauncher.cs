@@ -43,6 +43,7 @@ public class LanguageControllerForLauncher : MonoBehaviour
     {
         if (i == 1)
         {
+            SoundManager.Instance.Audio(14, PlayerPrefs.GetFloat("audioVolume"));
             if (LangButton.sprite == LangEN)
                 PlayerPrefs.SetString("Language", "TR");
             else

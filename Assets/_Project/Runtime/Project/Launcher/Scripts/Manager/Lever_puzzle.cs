@@ -19,6 +19,10 @@ public class Lever_puzzle : MonoBehaviour
         glass= DoorController.Instance.Door(2);
     }
 
+    private void Update()
+    {
+    }
+
     private void OnMouseDown()
     {
         Debug.Log(gameObject.tag);
@@ -41,19 +45,6 @@ public class Lever_puzzle : MonoBehaviour
             }
             else{
                 _trueRotStatus=false;
-            }
-        }
-        if(gameObject.tag=="Glass"){
-            counter=0;
-            for(int i=0; i<LeverList.Length;i++){
-                if(LeverList[i].GetComponent<Lever_puzzle>()._trueRotStatus){
-                    counter++;
-                }
-            }
-            if(counter==LeverList.Length && status==false){
-                status=true;
-                
-                glass.transform.position=new Vector3(glass.transform.position.x,glass.transform.position.y+1,glass.transform.position.z);
             }
         }
     }

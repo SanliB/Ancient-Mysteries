@@ -3298,6 +3298,8 @@ MonoBehaviour:
   StartVideo: {fileID: 1541808589}
   VideoImage: {fileID: 1517451900}
   SkipSceneButtonForVideo: {fileID: 2598748}
+  ClipTR: {fileID: 32900000, guid: fd03ec50af8e46d4e976f1cfd56968aa, type: 3}
+  ClipEN: {fileID: 32900000, guid: 23870a39fb3738c448c84faf7a34ebff, type: 3}
 --- !u!1 &1630601841
 GameObject:
   m_ObjectHideFlags: 0
@@ -4403,6 +4405,7 @@ MonoBehaviour:
   LangTR: {fileID: 21300000, guid: 55da06b56ee2dee4bbe43cde9d1ad68f, type: 3}
   LangEN: {fileID: 21300000, guid: ed0036b63bfce5d4b957adf7723f762f, type: 3}
   BackButtonText: {fileID: 15515936}
+  ClickSound: {fileID: 2043967114}
 --- !u!4 &2105406212
 Transform:
   m_ObjectHideFlags: 0
