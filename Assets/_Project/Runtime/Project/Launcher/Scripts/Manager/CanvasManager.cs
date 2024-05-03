@@ -87,7 +87,6 @@ namespace deneme
 
         public void AddItemForEnv(Sprite additem)
         {
-            Debug.Log(SearchFreeEnvIndex());
             EnvItemImages[SearchFreeEnvIndex()].GetComponent<Image>().sprite = additem;
             EnvItemImages[SearchFreeEnvIndex()].SetActive(true);
             EnvDictionary[SearchFreeEnvIndex()] = true;

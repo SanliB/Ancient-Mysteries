@@ -82,6 +82,7 @@ public class EndGameText : MonoBehaviour
         PlayerPrefs.SetFloat("CharacterPosY", -1.81f);
         PlayerPrefs.SetFloat("CharacterPosZ", 28.08f);
         PlayerPrefs.SetString("PlayerGameStatus", "Finish");
+        PlayerPrefs.SetInt("FlashLight", 0);
 
         StartCoroutine(GoBackEndText());
         gameObject.GetComponent<FinalPanel>().FinalScreen();

@@ -14,6 +14,8 @@ public class FlashlightToggle : MonoBehaviour
     void Start()
     {
         lightGO.SetActive(isOn);
+        if (PlayerPrefs.GetString("PlayerGameStatus") == "InGame")
+            Counter = true;
     }
 
     void Update()
