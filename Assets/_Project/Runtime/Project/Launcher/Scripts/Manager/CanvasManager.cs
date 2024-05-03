@@ -30,6 +30,7 @@ namespace deneme
         public GameObject EffectSlider;
         public GameObject ComeBackButtonForSettings;
         public GameObject MenuPanelforBackground;
+        public GameObject Character;
         //public Sprite FlashLigtIcon;
         public Sprite EnvBackGroundSprite;
         public Slider SensitivitySlider;
@@ -172,7 +173,11 @@ namespace deneme
 
         public void ifClickMainMenuButton()
         {
+            Vector3 Position = Character.GetComponent<Transform>().position;
             SoundManager.Instance.Audio(14,PlayerPrefs.GetFloat("audioVolume"));
+            PlayerPrefs.SetFloat("CharacterPosX", Position.x);
+            PlayerPrefs.SetFloat("CharacterPosY", Position.y);
+            PlayerPrefs.SetFloat("CharacterPosZ", Position.z);
             Time.timeScale = 1;
             SceneManager.LoadScene(0);
         }

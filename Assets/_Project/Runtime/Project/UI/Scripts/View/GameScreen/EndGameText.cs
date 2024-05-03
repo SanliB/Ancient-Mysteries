@@ -68,7 +68,7 @@ public class EndGameText : MonoBehaviour
             DOTween.To(() => EndText.text, (yazi) => EndText.text = yazi, "Arkeolog, maalesef, piramitlere yapýlan araþtýrma seferi sýrasýnda uzun çabalarýna raðmen yeterli bilgi toplayamadý. Ancak, eski yazýtlarýn dikkatli incelenmesi ve eski eserlerin keþfi sayesinde elde edilen sýnýrlý bilgiler, ona antik uygarlýklarýn sýrlarýný çözme konusunda yeni bir bakýþ açýsý saðladý. Belki de gerçek keþif, kayýp bir uygarlýðýn sýrlarýný çözmekte deðil, onlarýn býraktýðý mirasý anlamaktadýr."
                                                               , 17f).SetOptions(true, ScrambleMode.None);
 
-        yield return new WaitForSeconds(20);
+        yield return new WaitForSeconds(24);
         EndText.text = "";
         SoundManager.Instance.Audio(28,1);
         if (PlayerPrefs.GetString("Language") == "EN")
@@ -77,8 +77,12 @@ public class EndGameText : MonoBehaviour
         else
             DOTween.To(() => EndText.text, (yazi) => EndText.text = yazi, "Ve böylece, arkeoloðun yolculuðu sadece bir son deðil, ayný zamanda yeni bir baþlangýç anlamýna geliyordu. Antik uygarlýklarýn izlerini sürmek için daha fazla keþif yolculuðuna çýkmaya hazýr olan arkeolog, yeni bir heyecan ve merakla doluydu. Belki de gelecekte, gizemli kalýntýlar ve kayýp uygarlýklarla dolu baþka bir macera onu bekliyordu. Ama þimdilik, piramitlerin derinliklerinden çýkarken, gözlerinde bir parýltý ve kalbinde bir coþkuyla gelecek keþiflere doðru attýðý adýmýn heyecanýný hissediyordu. Ve bu, antik sýrlarla dolu yeni bir maceranýn kapýlarýný açmanýn sadece baþlangýcýydý..."
                                                             , 17f).SetOptions(true, ScrambleMode.None);
-        yield return new WaitForSeconds(12);//21
-        
+        yield return new WaitForSeconds(20);//21
+        PlayerPrefs.SetFloat("CharacterPosX", 38.87f);
+        PlayerPrefs.SetFloat("CharacterPosY", -1.81f);
+        PlayerPrefs.SetFloat("CharacterPosZ", 28.08f);
+        PlayerPrefs.SetString("PlayerGameStatus", "Finish");
+
         StartCoroutine(GoBackEndText());
         gameObject.GetComponent<FinalPanel>().FinalScreen();
     }

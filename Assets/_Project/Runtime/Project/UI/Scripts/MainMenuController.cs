@@ -33,6 +33,12 @@ public class MainMenuController : MonoBehaviour
         SensitivitySlider.value = PlayerPrefs.GetFloat("Sensitivity");
         MusicVolumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
         SoundEffectVolumeSlider.value = PlayerPrefs.GetFloat("audioVolume");
+        if (!PlayerPrefs.HasKey("CharacterPosX"))
+        {
+            PlayerPrefs.SetFloat("CharacterPosX", 38.87f);
+            PlayerPrefs.SetFloat("CharacterPosY", -1.81f);
+            PlayerPrefs.SetFloat("CharacterPosZ", 28.08f);
+        }
     }
 
     public void ifClickSettingButton()
@@ -91,6 +97,12 @@ public class MainMenuController : MonoBehaviour
 
     public void ifClickPlayButton()
     {
+        if (!PlayerPrefs.HasKey("PlayerGameStatus"))
+            PlayerPrefs.SetString("PlayerGameStatus", "Finish");
+        if (PlayerPrefs.GetString("PlayerGameStatus") == "InGame")
+            SceneManager.LoadScene(1);
+        else
+            PlayerPrefs.SetString("PlayerGameStatus", "InGame");
         if (PlayerPrefs.GetString("Language") == "TR")
             StartVideo.clip = ClipTR;
         else
